@@ -205,7 +205,7 @@ export const content = {
       experience: "Kinh nghiệm",
       projects: "Dự án",
       education: "Học vấn",
-      languages: "Ngoại ngữ",
+      languages: "Ngôn ngữ",
       certificates: "Chứng chỉ",
       contact: "Liên hệ",
     },
@@ -351,7 +351,7 @@ export const content = {
       ],
     },
     languages: {
-      title: "Ngoại ngữ",
+      title: "Ngôn ngữ",
       items: [
         { name: "Tiếng Việt", level: "Bản ngữ", percent: 100 },
         { name: "Tiếng Trung", level: "TOCFL B2; VSTEP C1", percent: 85 },

@@ -36,11 +36,10 @@ export function SectionTitle({
   return (
     <h2
       className={cn(
-        "text-3xl md:text-4xl font-bold text-gray-900 mb-12 relative inline-block",
+        "text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 relative inline-block tracking-tight",
         className
       )}>
       {children}
-      <span className="absolute -bottom-3 left-0 w-1/3 h-1 bg-esg-green rounded-full"></span>
     </h2>
   );
 }
