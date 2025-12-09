@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 import { Menu, X, Globe, Mail, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 
 export function Navigation() {
   const { t, language, toggleLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,107 +47,115 @@ export function Navigation() {
   };
 
   return (
-    <header 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-sm border-gray-100 py-3" : "bg-transparent py-5"
-      )}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <a 
-          href="#" 
-          onClick={(e) => handleLinkClick(e, '#hero')}
-          className="text-xl font-bold tracking-tight text-esg-green flex items-center gap-2"
-        >
-          <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg">V</div>
-          <span className="hidden sm:inline-block">Nguyen Viet Vinh</span>
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-sm font-medium text-gray-600 hover:text-esg-green transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          
-          <div className="h-4 w-px bg-gray-300 mx-2"></div>
-
-          <div className="flex items-center gap-3">
-             <a href="mailto:email@example.com" className="text-gray-500 hover:text-esg-green transition-colors">
-               <Mail className="w-4 h-4" />
-             </a>
-             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#0077b5] transition-colors">
-               <Linkedin className="w-4 h-4" />
-             </a>
-          </div>
-
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-xs font-bold text-gray-700 uppercase tracking-wide"
-          >
-            <Globe className="w-3 h-3" />
-            <span>{language}</span>
-          </button>
-        </nav>
-
-        {/* Mobile Toggle */}
-        <div className="flex items-center gap-4 lg:hidden">
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-xs font-bold text-gray-700 uppercase"
-          >
-            {language}
-          </button>
-          
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-gray-600 hover:text-esg-green transition-colors"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-gray-100 overflow-hidden"
-          >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-lg font-medium text-gray-600 hover:text-esg-green py-2"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="flex gap-4 pt-4 border-t border-gray-100 mt-2">
-                <a href="mailto:email@example.com" className="flex items-center gap-2 text-gray-600">
-                   <Mail className="w-5 h-5" />
-                   <span className="text-sm">Email</span>
-                </a>
-                <a href="#" className="flex items-center gap-2 text-gray-600">
-                   <Linkedin className="w-5 h-5" />
-                   <span className="text-sm">LinkedIn</span>
-                </a>
-              </div>
-            </div>
-          </motion.div>
+    <>
+      <header 
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
+          scrolled ? "bg-white/90 backdrop-blur-md shadow-sm border-gray-100 py-3" : "bg-transparent py-5"
         )}
-      </AnimatePresence>
-    </header>
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          <a 
+            href="#" 
+            onClick={(e) => handleLinkClick(e, '#hero')}
+            className="text-xl font-bold tracking-tight text-esg-green flex items-center gap-2"
+          >
+            <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg">V</div>
+            <span className="hidden sm:inline-block">Nguyen Viet Vinh</span>
+          </a>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
+                className="text-sm font-medium text-gray-600 hover:text-esg-green transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            
+            <div className="h-4 w-px bg-gray-300 mx-2"></div>
+
+            <div className="flex items-center gap-3">
+               <a href="mailto:email@example.com" className="text-gray-500 hover:text-esg-green transition-colors">
+                 <Mail className="w-4 h-4" />
+               </a>
+               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#0077b5] transition-colors">
+                 <Linkedin className="w-4 h-4" />
+               </a>
+            </div>
+
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-xs font-bold text-gray-700 uppercase tracking-wide"
+            >
+              <Globe className="w-3 h-3" />
+              <span>{language}</span>
+            </button>
+          </nav>
+
+          {/* Mobile Toggle */}
+          <div className="flex items-center gap-4 lg:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-xs font-bold text-gray-700 uppercase"
+            >
+              {language}
+            </button>
+            
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-gray-600 hover:text-esg-green transition-colors"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-white border-b border-gray-100 overflow-hidden"
+            >
+              <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className="text-lg font-medium text-gray-600 hover:text-esg-green py-2"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <div className="flex gap-4 pt-4 border-t border-gray-100 mt-2">
+                  <a href="mailto:email@example.com" className="flex items-center gap-2 text-gray-600">
+                     <Mail className="w-5 h-5" />
+                     <span className="text-sm">Email</span>
+                  </a>
+                  <a href="#" className="flex items-center gap-2 text-gray-600">
+                     <Linkedin className="w-5 h-5" />
+                     <span className="text-sm">LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+        {/* Scroll Progress Bar */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-esg-green origin-left"
+          style={{ scaleX }}
+        />
+      </header>
+    </>
   );
 }

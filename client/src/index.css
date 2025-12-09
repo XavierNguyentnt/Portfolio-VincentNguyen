@@ -129,3 +129,34 @@
     scroll-behavior: smooth;
   }
 }
+
+@media print {
+  header, footer, #contact, button, a[href^="#"] {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    padding: 20px 0 !important;
+  }
+  
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+
+  /* Force expanded skill lists */
+  .grid {
+    display: block;
+  }
+  
+  .grid > div {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+  }
+}
