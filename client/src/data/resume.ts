@@ -9,6 +9,7 @@ export const content = {
       projects: "Projects",
       education: "Education",
       languages: "Languages",
+      certificates: "Certificates",
       contact: "Contact",
     },
     hero: {
@@ -159,6 +160,31 @@ export const content = {
         { name: "English", level: "Intermediate", percent: 60 },
       ],
     },
+    certificates: {
+      title: "Certifications",
+      items: [
+        {
+          name: "ESG Communication for Inclusive Dialogue",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/R3VF8QGBV2IJ",
+        },
+        {
+          name: "ESG Essentials for Sustainable Business",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/OIWT3F9BPMS9",
+        },
+        {
+          name: "ESG Value Creation for Business Impact",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/Q52S2U9Z68FW",
+        },
+        {
+          name: "Machine Learning for All",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/KXO5D0OOI4F3",
+        },
+      ] as Array<{ name: string; issuer: string; date?: string; url?: string }>,
+    },
     contact: {
       title: "Contact",
       email: "Email",
@@ -180,6 +206,7 @@ export const content = {
       projects: "Dự án",
       education: "Học vấn",
       languages: "Ngoại ngữ",
+      certificates: "Chứng chỉ",
       contact: "Liên hệ",
     },
     hero: {
@@ -330,6 +357,31 @@ export const content = {
         { name: "Tiếng Trung", level: "TOCFL B2; VSTEP C1", percent: 85 },
         { name: "Tiếng Anh", level: "Trung cấp", percent: 60 },
       ],
+    },
+    certificates: {
+      title: "Chứng chỉ",
+      items: [
+        {
+          name: "ESG Communication for Inclusive Dialogue",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/R3VF8QGBV2IJ",
+        },
+        {
+          name: "ESG Essentials for Sustainable Business",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/OIWT3F9BPMS9",
+        },
+        {
+          name: "ESG Value Creation for Business Impact",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/Q52S2U9Z68FW",
+        },
+        {
+          name: "Machine Learning for All",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/KXO5D0OOI4F3",
+        },
+      ] as Array<{ name: string; issuer: string; date?: string; url?: string }>,
     },
     contact: {
       title: "Liên hệ",

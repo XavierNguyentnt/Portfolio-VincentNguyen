@@ -20,11 +20,32 @@ import {
   Calendar,
   Building2,
   Globe2,
+  Award,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
   const { t, language } = useLanguage();
+
+  const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      ) || window.innerWidth <= 768;
+
+    if (isMobile) {
+      // Mobile: mở ứng dụng gọi điện
+      window.location.href = "tel:+84387542402";
+    } else {
+      // Desktop: mở Zalo
+      e.preventDefault();
+      window.open(
+        "https://zalo.me/0387542402",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans selection:bg-esg-green/20">
@@ -57,8 +78,9 @@ export default function Portfolio() {
               </p>
 
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="https://www.canva.com/design/DAG661GQQ8o/Jppyk4-hLRaF8vSzOOlw6A/edit?utm_content=DAG661GQQ8o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-esg-green text-white rounded-lg font-medium hover:bg-esg-green/90 transition-all shadow-lg shadow-esg-green/20 hover:shadow-xl hover:-translate-y-1">
                 <Download className="w-5 h-5" />
                 {t.hero.cta}
@@ -324,78 +346,85 @@ export default function Portfolio() {
         </div>
       </Section>
 
+      {/* Certificates Section */}
+      {t.certificates && t.certificates.items.length > 0 && (
+        <Section id="certificates" className="bg-gray-50">
+          <SectionTitle>{t.certificates.title}</SectionTitle>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {t.certificates.items.map((cert, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col">
+                <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 text-orange-500 shrink-0">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {cert.name}
+                </h3>
+                <p className="text-sm text-gray-600 mb-3">{cert.issuer}</p>
+                {cert.date && (
+                  <p className="text-xs text-gray-500 mb-3">{cert.date}</p>
+                )}
+                {cert.url && (
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-esg-green hover:text-esg-green/80 font-medium mt-auto">
+                    {language === "vi"
+                      ? "Xem chứng chỉ →"
+                      : "View Certificate →"}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
+
       {/* Contact Section */}
       <Section id="contact" className="bg-gray-900 text-white mb-0 pb-20">
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              {t.contact.title}
-            </h2>
-            <p className="text-gray-400 mb-12 text-lg">
-              {language === "en"
-                ? "Let's discuss how we can build sustainable value together."
-                : "Hãy thảo luận cách chúng ta có thể cùng nhau xây dựng giá trị bền vững."}
-            </p>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            {t.contact.title}
+          </h2>
+          <p className="text-gray-400 mb-12 text-lg">
+            {language === "en"
+              ? "Let's discuss how we can build sustainable value together."
+              : "Hãy kết nối với tôi để có thể cùng nhau xây dựng giá trị bền vững!"}
+          </p>
 
-            <div className="space-y-6">
-              <a
-                href="#"
-                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
-                <Mail className="w-6 h-6 text-esg-green" />
-                <span className="text-lg">email@example.com</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
-                <Phone className="w-6 h-6 text-esg-blue" />
-                <span className="text-lg">+84 123 456 789</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
-                <Linkedin className="w-6 h-6 text-[#0077b5]" />
-                <span className="text-lg">linkedin.com/in/nguyenvietvinh</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="bg-white text-gray-900 p-8 rounded-2xl">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t.contact.form.name}
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t.contact.form.email}
-                </label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t.contact.form.message}
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"></textarea>
-              </div>
-              <button className="w-full py-4 bg-esg-green text-white font-bold rounded-lg hover:bg-esg-green/90 transition-all shadow-lg shadow-esg-green/20">
-                {t.contact.form.submit}
-              </button>
-            </form>
+          <div className="space-y-6">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=vincentnguyentnt@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <Mail className="w-6 h-6 text-esg-green" />
+              <span className="text-lg">vincentnguyentnt@gmail.com</span>
+            </a>
+            <a
+              href="tel:+84387542402"
+              onClick={handlePhoneClick}
+              className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <Phone className="w-6 h-6 text-esg-blue" />
+              <span className="text-lg">+84 387 542 402</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/vinh-nguyen-viet-276490393/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <Linkedin className="w-6 h-6 text-[#0077b5]" />
+              <span className="text-lg">
+                linkedin.com/in/vinh-nguyen-viet-276490393
+              </span>
+            </a>
           </div>
         </div>
       </Section>
 
-      <footer className="bg-gray-950 text-gray-500 py-8 text-center text-sm border-t border-gray-900">
+      <footer className="bg-gray-950 text-gray-500 py-4 text-center text-xs border-t border-gray-900">
         <p>© 2025 Nguyen Viet Vinh. All rights reserved.</p>
       </footer>
     </div>
