@@ -79,7 +79,7 @@ export function Navigation() {
             <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg">
               V
             </div>
-            <span className="hidden sm:inline-block">Nguyen Viet Vinh</span>
+            <span className="hidden sm:inline-block">Personal Portfolio</span>
           </a>
 
           {/* Desktop Nav */}

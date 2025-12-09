@@ -383,7 +383,7 @@ export default function Portfolio() {
       )}
 
       {/* Contact Section */}
-      <Section id="contact" className="bg-gray-900 text-white mb-0 pb-20">
+      <Section id="contact" className="bg-gray-900 text-white mb-0 pb-15">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             {t.contact.title}
