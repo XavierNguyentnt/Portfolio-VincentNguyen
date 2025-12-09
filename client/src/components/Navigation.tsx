@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
-import { Menu, X, Globe, Mail, Linkedin } from 'lucide-react';
+import { Menu, X, Mail, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 
 export function Navigation() {
-  const { t, language, toggleLanguage } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -88,23 +88,84 @@ export function Navigation() {
                </a>
             </div>
 
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-xs font-bold text-gray-700 uppercase tracking-wide"
-            >
-              <Globe className="w-3 h-3" />
-              <span>{language}</span>
-            </button>
+            <div className="relative flex items-center bg-gray-100 rounded-full p-1">
+              <button
+                onClick={() => setLanguage('vi')}
+                className={cn(
+                  "relative z-10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
+                  language === 'vi' 
+                    ? "text-white" 
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                Vi
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={cn(
+                  "relative z-10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
+                  language === 'en' 
+                    ? "text-white" 
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                En
+              </button>
+              <motion.div
+                className="absolute inset-y-1 rounded-full bg-esg-green shadow-sm"
+                initial={false}
+                animate={{
+                  left: language === 'vi' ? '0.25rem' : '50%',
+                  width: 'calc(50% - 0.25rem)',
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 500,
+                  damping: 30
+                }}
+              />
+            </div>
           </nav>
 
           {/* Mobile Toggle */}
           <div className="flex items-center gap-4 lg:hidden">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-xs font-bold text-gray-700 uppercase"
-            >
-              {language}
-            </button>
+            <div className="relative flex items-center bg-gray-100 rounded-full p-1">
+              <button
+                onClick={() => setLanguage('vi')}
+                className={cn(
+                  "relative z-10 px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
+                  language === 'vi' 
+                    ? "text-white" 
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                Vi
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={cn(
+                  "relative z-10 px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
+                  language === 'en' 
+                    ? "text-white" 
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                En
+              </button>
+              <motion.div
+                className="absolute inset-y-1 rounded-full bg-esg-green shadow-sm"
+                initial={false}
+                animate={{
+                  left: language === 'vi' ? '0.25rem' : '50%',
+                  width: 'calc(50% - 0.25rem)',
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 500,
+                  damping: 30
+                }}
+              />
+            </div>
             
             <button
               onClick={() => setIsOpen(!isOpen)}

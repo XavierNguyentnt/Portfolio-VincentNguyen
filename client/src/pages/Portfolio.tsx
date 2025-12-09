@@ -70,9 +70,9 @@ export default function Portfolio() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center md:justify-end">
-              <div className="relative w-full max-w-md">
-                <div className="absolute inset-0 bg-esg-green/10 rounded-3xl transform rotate-3"></div>
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <div className="relative w-full max-w-sm">
+                <div className="absolute inset-0 bg-esg-green/10 rounded-2xl transform rotate-2"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-white">
                   <img
                     src="/profile-photo.jpg"
                     alt={t.hero.name}
@@ -289,6 +289,11 @@ export default function Portfolio() {
                         {edu.gpa}
                       </span>
                     </div>
+                    {edu.achievement && (
+                      <p className="mt-2 text-sm text-gray-600 italic">
+                        {edu.achievement}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
