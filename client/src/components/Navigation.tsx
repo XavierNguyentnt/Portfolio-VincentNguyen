@@ -39,15 +39,26 @@ export function Navigation() {
     href: string
   ) => {
     e.preventDefault();
+
     const element = document.querySelector(href);
-    if (element) {
-      const offsetTop =
-        element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
+    if (!element) return;
+
+    // If mobile menu is open, close it first and wait for animation
+    if (isOpen) {
       setIsOpen(false);
+      // Wait for menu close animation to complete (AnimatePresence exit)
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 350); // Slightly longer than animation duration to ensure menu is fully closed
+    } else {
+      // Desktop: scroll immediately
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
