@@ -1,27 +1,27 @@
-import React from 'react';
-import { useLanguage } from '@/components/LanguageContext';
-import { Navigation } from '@/components/Navigation';
-import { Section, SectionTitle } from '@/components/Section';
-import { cn } from '@/lib/utils';
-import { 
-  Download, 
-  Leaf, 
-  ShieldCheck, 
-  FileText, 
-  Users, 
-  BarChart3, 
-  Search, 
-  Briefcase, 
-  GraduationCap, 
-  Mail, 
-  Linkedin, 
+import React from "react";
+import { useLanguage } from "@/components/LanguageContext";
+import { Navigation } from "@/components/Navigation";
+import { Section, SectionTitle } from "@/components/Section";
+import { cn } from "@/lib/utils";
+import {
+  Download,
+  Leaf,
+  ShieldCheck,
+  FileText,
+  Users,
+  BarChart3,
+  Search,
+  Briefcase,
+  GraduationCap,
+  Mail,
+  Linkedin,
   Phone,
   CheckCircle2,
   Calendar,
   Building2,
-  Globe2
-} from 'lucide-react';
-import { motion } from 'framer-motion';
+  Globe2,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Portfolio() {
   const { t, language } = useLanguage();
@@ -31,39 +31,57 @@ export default function Portfolio() {
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 to-white pt-20">
+      <section
+        id="hero"
+        className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 to-white pt-20">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-esg-green/5 blur-3xl rounded-full transform translate-x-1/3 -translate-y-1/4"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-esg-blue/5 blur-3xl rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <span className="inline-block px-3 py-1 mb-6 text-sm font-semibold tracking-wider text-esg-green bg-esg-green/10 rounded-full uppercase">
-              Portfolio
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              {t.hero.name}
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 font-light leading-relaxed max-w-2xl">
-              {t.hero.title}
-            </p>
-            <p className="text-lg text-gray-500 mb-10 max-w-xl border-l-4 border-esg-blue pl-4 italic">
-              "{t.hero.tagline}"
-            </p>
-            
-            <a 
-              href="#" 
-              onClick={(e) => e.preventDefault()}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-esg-green text-white rounded-lg font-medium hover:bg-esg-green/90 transition-all shadow-lg shadow-esg-green/20 hover:shadow-xl hover:-translate-y-1"
-            >
-              <Download className="w-5 h-5" />
-              {t.hero.cta}
-            </a>
-          </motion.div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}>
+              <span className="inline-block px-3 py-1 mb-6 text-sm font-semibold tracking-wider text-esg-green bg-esg-green/10 rounded-full uppercase">
+                Portfolio
+              </span>
+              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                {t.hero.name}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 font-light leading-relaxed max-w-2xl">
+                {t.hero.title}
+              </p>
+              <p className="text-lg text-gray-500 mb-10 max-w-xl border-l-4 border-esg-blue pl-4 italic">
+                "{t.hero.tagline}"
+              </p>
+
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-esg-green text-white rounded-lg font-medium hover:bg-esg-green/90 transition-all shadow-lg shadow-esg-green/20 hover:shadow-xl hover:-translate-y-1">
+                <Download className="w-5 h-5" />
+                {t.hero.cta}
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex justify-center md:justify-end">
+              <div className="relative w-full max-w-md">
+                <div className="absolute inset-0 bg-esg-green/10 rounded-3xl transform rotate-3"></div>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/profile-photo.jpg"
+                    alt={t.hero.name}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -81,19 +99,27 @@ export default function Portfolio() {
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm">
                 <ShieldCheck className="w-8 h-8 text-esg-green mb-2" />
-                <span className="text-sm font-medium text-center">Compliance</span>
+                <span className="text-sm font-medium text-center">
+                  Compliance
+                </span>
               </div>
               <div className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm">
                 <Globe2 className="w-8 h-8 text-esg-blue mb-2" />
-                <span className="text-sm font-medium text-center">Sustainability</span>
+                <span className="text-sm font-medium text-center">
+                  Sustainability
+                </span>
               </div>
               <div className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm">
                 <FileText className="w-8 h-8 text-orange-500 mb-2" />
-                <span className="text-sm font-medium text-center">Documentation</span>
+                <span className="text-sm font-medium text-center">
+                  Documentation
+                </span>
               </div>
               <div className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm">
                 <Users className="w-8 h-8 text-purple-500 mb-2" />
-                <span className="text-sm font-medium text-center">Collaboration</span>
+                <span className="text-sm font-medium text-center">
+                  Collaboration
+                </span>
               </div>
             </div>
           </div>
@@ -109,10 +135,14 @@ export default function Portfolio() {
             <div className="w-12 h-12 bg-esg-green/10 rounded-xl flex items-center justify-center mb-6 text-esg-green">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.skills.categories.esg.title}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
+              {t.skills.categories.esg.title}
+            </h3>
             <ul className="space-y-3">
               {t.skills.categories.esg.items.map((skill, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+                <li
+                  key={i}
+                  className="flex items-start gap-3 text-gray-600 text-sm">
                   <CheckCircle2 className="w-4 h-4 text-esg-green shrink-0 mt-0.5" />
                   <span>{skill}</span>
                 </li>
@@ -125,10 +155,14 @@ export default function Portfolio() {
             <div className="w-12 h-12 bg-esg-blue/10 rounded-xl flex items-center justify-center mb-6 text-esg-blue">
               <BarChart3 className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.skills.categories.project.title}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
+              {t.skills.categories.project.title}
+            </h3>
             <ul className="space-y-3">
               {t.skills.categories.project.items.map((skill, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+                <li
+                  key={i}
+                  className="flex items-start gap-3 text-gray-600 text-sm">
                   <CheckCircle2 className="w-4 h-4 text-esg-blue shrink-0 mt-0.5" />
                   <span>{skill}</span>
                 </li>
@@ -141,10 +175,14 @@ export default function Portfolio() {
             <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-6 text-orange-500">
               <Search className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.skills.categories.research.title}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
+              {t.skills.categories.research.title}
+            </h3>
             <ul className="space-y-3">
               {t.skills.categories.research.items.map((skill, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+                <li
+                  key={i}
+                  className="flex items-start gap-3 text-gray-600 text-sm">
                   <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
                   <span>{skill}</span>
                 </li>
@@ -159,25 +197,40 @@ export default function Portfolio() {
         <SectionTitle>{t.experience.title}</SectionTitle>
         <div className="space-y-12 relative before:absolute before:left-0 md:before:left-1/2 before:top-0 before:bottom-0 before:w-px before:bg-gray-200 before:-ml-px">
           {t.experience.jobs.map((job, index) => (
-            <div key={index} className="relative flex flex-col md:flex-row items-start group">
+            <div
+              key={index}
+              className="relative flex flex-col md:flex-row items-start group">
               {/* Timeline Dot */}
               <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-white border-4 border-esg-green rounded-full transform -translate-x-1.5 md:-translate-x-2 mt-1.5 z-10"></div>
-              
+
               {/* Content */}
-              <div className={cn(
-                "w-full md:w-1/2 pl-8 md:pl-0 md:pr-12", 
-                index % 2 !== 0 ? "md:ml-auto md:pl-12 md:pr-0" : "text-left md:text-right"
-              )}>
+              <div
+                className={cn(
+                  "w-full md:w-1/2 pl-8 md:pl-0 md:pr-12",
+                  index % 2 !== 0
+                    ? "md:ml-auto md:pl-12 md:pr-0"
+                    : "text-left md:text-right"
+                )}>
                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group-hover:border-esg-green/20">
                   <span className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-esg-blue bg-esg-blue/10 rounded-full">
                     {job.period}
                   </span>
-                  <h3 className="text-lg font-bold text-gray-900">{job.role}</h3>
-                  <div className={cn("flex items-center gap-2 text-gray-500 mb-4 text-sm font-medium", index % 2 !== 0 ? "" : "md:justify-end")}>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {job.role}
+                  </h3>
+                  <div
+                    className={cn(
+                      "flex items-center gap-2 text-gray-500 mb-4 text-sm font-medium",
+                      index % 2 !== 0 ? "" : "md:justify-end"
+                    )}>
                     <Building2 className="w-4 h-4" />
                     <span>{job.company}</span>
                   </div>
-                  <ul className={cn("space-y-2 text-gray-600 text-sm list-disc list-inside", index % 2 !== 0 ? "" : "md:list-none")}>
+                  <ul
+                    className={cn(
+                      "space-y-2 text-gray-600 text-sm list-disc list-inside",
+                      index % 2 !== 0 ? "" : "md:list-none"
+                    )}>
                     {job.description.map((desc, i) => (
                       <li key={i}>{desc}</li>
                     ))}
@@ -194,12 +247,18 @@ export default function Portfolio() {
         <SectionTitle>{t.projects.title}</SectionTitle>
         <div className="grid md:grid-cols-3 gap-8">
           {t.projects.items.map((project, index) => (
-            <div key={index} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
+            <div
+              key={index}
+              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
               <div className="w-12 h-12 bg-esg-green/10 rounded-xl flex items-center justify-center mb-6 text-esg-green">
                 <Briefcase className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
-              <p className="text-gray-600 leading-relaxed flex-grow">{project.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed flex-grow">
+                {project.description}
+              </p>
             </div>
           ))}
         </div>
@@ -218,11 +277,17 @@ export default function Portfolio() {
                     <GraduationCap className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">{edu.degree}</h3>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {edu.degree}
+                    </h3>
                     <p className="text-gray-600">{edu.school}</p>
                     <div className="flex gap-4 mt-2 text-sm text-gray-500">
-                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {edu.year}</span>
-                      <span className="font-semibold text-esg-green">{edu.gpa}</span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" /> {edu.year}
+                      </span>
+                      <span className="font-semibold text-esg-green">
+                        {edu.gpa}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -241,12 +306,11 @@ export default function Portfolio() {
                     <span className="text-sm text-gray-500">{lang.level}</span>
                   </div>
                   <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${lang.percent}%` }}
                       transition={{ duration: 1, delay: 0.2 }}
-                      className="h-full bg-esg-green rounded-full"
-                    ></motion.div>
+                      className="h-full bg-esg-green rounded-full"></motion.div>
                   </div>
                 </div>
               ))}
@@ -259,23 +323,31 @@ export default function Portfolio() {
       <Section id="contact" className="bg-gray-900 text-white mb-0 pb-20">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">{t.contact.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              {t.contact.title}
+            </h2>
             <p className="text-gray-400 mb-12 text-lg">
-              {language === 'en' 
-                ? "Let's discuss how we can build sustainable value together." 
+              {language === "en"
+                ? "Let's discuss how we can build sustainable value together."
                 : "Hãy thảo luận cách chúng ta có thể cùng nhau xây dựng giá trị bền vững."}
             </p>
-            
+
             <div className="space-y-6">
-              <a href="#" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <a
+                href="#"
+                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
                 <Mail className="w-6 h-6 text-esg-green" />
                 <span className="text-lg">email@example.com</span>
               </a>
-              <a href="#" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <a
+                href="#"
+                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
                 <Phone className="w-6 h-6 text-esg-blue" />
                 <span className="text-lg">+84 123 456 789</span>
               </a>
-              <a href="#" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <a
+                href="#"
+                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
                 <Linkedin className="w-6 h-6 text-[#0077b5]" />
                 <span className="text-lg">linkedin.com/in/nguyenvietvinh</span>
               </a>
@@ -285,16 +357,30 @@ export default function Portfolio() {
           <div className="bg-white text-gray-900 p-8 rounded-2xl">
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.name}</label>
-                <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all" />
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t.contact.form.name}
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"
+                />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.email}</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all" />
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t.contact.form.email}
+                </label>
+                <input
+                  type="email"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"
+                />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.message}</label>
-                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"></textarea>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t.contact.form.message}
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-esg-green focus:ring-2 focus:ring-esg-green/20 outline-none transition-all"></textarea>
               </div>
               <button className="w-full py-4 bg-esg-green text-white font-bold rounded-lg hover:bg-esg-green/90 transition-all shadow-lg shadow-esg-green/20">
                 {t.contact.form.submit}
@@ -303,7 +389,7 @@ export default function Portfolio() {
           </div>
         </div>
       </Section>
-      
+
       <footer className="bg-gray-950 text-gray-500 py-8 text-center text-sm border-t border-gray-900">
         <p>© 2025 Nguyen Viet Vinh. All rights reserved.</p>
       </footer>
