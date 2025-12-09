@@ -524,7 +524,7 @@ export default function Portfolio() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
               {t.contact.title}
             </h2>
-            <p className="text-gray-300 mb-16 text-xl md:text-2xl font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-300 mb-16 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
               {language === "en"
                 ? "Connect with me so we can build sustainable value together!"
                 : "Hãy kết nối với tôi để có thể cùng nhau xây dựng giá trị bền vững!"}
