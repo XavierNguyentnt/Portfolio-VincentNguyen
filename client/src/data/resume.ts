@@ -37,9 +37,8 @@ export const content = {
             "Fire Safety",
             "Security",
             "Internal Audit",
-            "ESG reporting",
-            "Document control",
-            "CAP follow-up",
+            "Document Management",
+            "CAP Tracking",
           ],
         },
         project: {
@@ -59,48 +58,49 @@ export const content = {
       },
     },
     experience: {
-      title: "Experience",
+      title: "Work Experience",
       jobs: [
         {
-          role: "Project Secretary / Project Coordinator",
+          role: "Translation Component Manager / Research Assistant",
           company: "Tran Nhan Tong Institute, VNU Hanoi",
           period: "05/2021 – Present",
           description: [
-            "Managed a national Buddhist scripture translation project.",
-            "Created SOPs, documentation standards, progress reports.",
-            "Monitored risks and coordinated 20+ translators and researchers.",
-            "Managed contracts, records, and budget.",
+            "Managed 02 translation components of Buddhist Canon in the National University-level Project assigned by the Government Office.",
+            "Created SOPs, standardized documentation, and prepared periodic progress reports.",
+            "Monitored progress, managed risks, and coordinated professional secretary teams.",
+            "Managed records, contracts, and budget.",
           ],
         },
         {
-          role: "Internal Compliance Officer",
+          role: "Internal Compliance Officer / Senior Clerk",
           company: "Yi Da Vietnam Limited",
-          period: "02/2020 – 04/2021",
+          period: "01/2020 – 04/2021",
           description: [
-            "Performed internal audits on environment, labor, OHS, fire safety, security.",
-            "Prepared compliance documentation & audit evidence.",
-            "Supported audits: RCS, GOTS, OCS, Higg, ZDHC, LABS, Better Work.",
-            "Followed up CAPs to close non-conformities.",
+            "Performed internal audits on: Environment, Human Resources, OHS, Fire Safety, Security.",
+            "Prepared and improved compliance documentation system & audit evidence.",
+            "Supported audits: Better Work, RCS, GOTS, OCS, Higg Index, ZDHC, LABS,...",
+            "Followed up CAPs and coordinated departments to improve non-conformities.",
           ],
         },
         {
-          role: "Senior Clerk / Project Assistant",
+          role: "Project Assistant / Senior Clerk",
           company: "Yi Da Vietnam Limited",
-          period: "04/2019 – 02/2020",
+          period: "04/2019 – 01/2020",
           description: [
-            "Managed construction documents.",
-            "Supervised contractor progress.",
-            "Prepared progress reports for management.",
+            "Managed construction project documentation for the Company.",
+            "Supervised contractor progress and construction quality.",
+            "Periodically reported construction progress to management and Board of Directors.",
           ],
         },
         {
-          role: "Chinese–Vietnamese Interpreter",
-          company: "Renhe International Development Co., Ltd. (Grandho Group)",
+          role: "Chinese–Vietnamese Interpreter / Interpreter",
+          company:
+            "Renhe International Development Co., Ltd. (Grandho Group, Taiwan)",
           period: "12/2017 – 03/2019",
           description: [
-            "Interpreted between Taiwanese management and Vietnamese workers.",
-            "Supported dispute resolution and welfare discussions.",
-            "Assisted with residence permits, visas, insurance, and tax.",
+            "Interpreted and bridged communication between Taiwanese management and Vietnamese workers.",
+            "Supported conflict resolution & welfare discussions.",
+            "Assisted with residence permits, visas, insurance, tax refunds,...",
           ],
         },
       ],
@@ -109,19 +109,19 @@ export const content = {
       title: "Featured Projects",
       items: [
         {
-          title: "Internal Compliance Audit System",
+          title: "Internal Compliance System",
           description:
-            "Standardized compliance documentation (8 categories). Reduced audit preparation time by 30–40%. Improved cross-department cooperation and CAP closure.",
+            "Standardized compliance documentation. Reduced audit preparation time by 30–40%. Improved cross-department cooperation and CAP closure rate.",
         },
         {
-          title: "National Buddhist Canon Translation Project",
+          title: "Translation and Promotion of Eastern Classics Project",
           description:
-            "Coordinated 20+ researchers & translators. Ensured accurate documentation, progress tracking, and risk control.",
+            "Managed translation contract implementation progress; Advised related departments to establish operational procedures and professional documentation management. Proposed necessary innovations to improve translation component management efficiency.",
         },
         {
-          title: "Third-Party Audit Preparation (Manufacturing)",
+          title: "Third-Party Audit Preparation (Apparel Industry)",
           description:
-            "Supported multiple high-standard audits: GOTS, OCS, RCS, Higg, ZDHC. Ensured the factory maintained compliance with international buyers.",
+            "Supported multiple high-standard audits: Better Work, Higg Index, ZDHC, GOTS, OCS, RCS, LABS,...",
         },
       ],
     },
@@ -138,17 +138,17 @@ export const content = {
         },
         {
           degree: "Master's Degree in Sino–Nom Studies",
-          school: "USSH – VNU Hanoi",
+          school: "University of Social Sciences and Humanities, VNU Hanoi",
           year: "2021–2024",
           gpa: "GPA: 3.74",
           achievement:
-            "Participated in Historical Research and Data Processing on Ancient Vietnamese Inscriptions (VIETNAMICA) project as a Master's degree student",
+            "Participated in the European project on historical research and digitization of Vietnamese stele inscriptions (VIETNAMICA) as a Master's degree student",
         },
         {
           degree: "Bachelor's Degree in Sino–Nom Studies",
-          school: "USSH – VNU Hanoi",
+          school: "University of Social Sciences and Humanities, VNU Hanoi",
           year: "2013–2017",
-          gpa: "GPA: 3.33 (Distinction)",
+          gpa: "GPA: 3.33 - Graduated with Distinction",
         },
       ],
     },

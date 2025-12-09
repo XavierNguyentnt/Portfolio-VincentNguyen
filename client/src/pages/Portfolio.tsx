@@ -390,7 +390,7 @@ export default function Portfolio() {
           </h2>
           <p className="text-gray-400 mb-12 text-lg">
             {language === "en"
-              ? "Let's discuss how we can build sustainable value together."
+              ? "Connect with me so we can build sustainable value together!"
               : "Hãy kết nối với tôi để có thể cùng nhau xây dựng giá trị bền vững!"}
           </p>
 
