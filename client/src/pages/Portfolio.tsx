@@ -48,7 +48,15 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-sans selection:bg-esg-green/20">
+    <div className="min-h-screen text-gray-800 font-sans selection:bg-esg-green/20 relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-fixed -z-10"
+        style={{ backgroundImage: 'url(/bg-image.webp)' }}
+      />
+      {/* Overlay for better readability */}
+      <div className="fixed inset-0 w-full h-full bg-white/85 backdrop-blur-[1px] -z-10" />
+      
       <Navigation />
 
       {/* Hero Section */}
