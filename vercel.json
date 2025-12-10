@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "buildCommand": "npm install && tsx script/build-vercel.ts",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/api/esg-learning/topics",
+      "destination": "/api/esg-learning/topics"
+    },
+    {
+      "source": "/api/esg-learning/content",
+      "destination": "/api/esg-learning/content"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "functions": {
+    "api/esg-learning/*.ts": {
+      "maxDuration": 30
+    }
+  }
+}
+
