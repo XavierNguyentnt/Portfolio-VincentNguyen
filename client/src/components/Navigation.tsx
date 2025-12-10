@@ -95,7 +95,7 @@ export function Navigation() {
         )}>
         <div
           className={cn(
-            "container mx-auto px-6 flex items-center justify-center relative transition-all duration-500 overflow-hidden",
+            "container mx-auto px-6 flex items-center justify-between relative transition-all duration-500 overflow-hidden",
             scrolled ? "min-h-[64px] py-3" : "min-h-[80px] py-5"
           )}>
           <a
@@ -105,7 +105,7 @@ export function Navigation() {
               if (isOpen) setIsOpen(false);
               setLocation("/");
             }}
-            className="absolute left-6 text-xl font-bold tracking-tight text-esg-green flex items-center gap-2 h-full">
+            className="text-xl font-bold tracking-tight text-esg-green flex items-center gap-2 h-full shrink-0 z-10">
             <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg shrink-0">
               V
             </div>
@@ -115,33 +115,33 @@ export function Navigation() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-8 h-full">
+          <nav className="hidden xl:flex items-center gap-4 xl:gap-6 h-full flex-1 justify-center max-w-5xl mx-auto px-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group">
+                className="text-xs xl:text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group whitespace-nowrap">
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esg-green transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
 
-            <div className="h-4 w-px bg-gray-300 mx-2"></div>
+            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2"></div>
 
             <a
               href="/esg-learning"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group flex items-center gap-2">
-              <BookOpen className="w-4 h-4" />
+              className="text-xs xl:text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group flex items-center gap-1.5 xl:gap-2 whitespace-nowrap">
+              <BookOpen className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
               <span>{language === "vi" ? "Học tập ESG" : "ESG Learning"}</span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esg-green transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <div className="h-4 w-px bg-gray-300 mx-2"></div>
+            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2"></div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 xl:gap-3 shrink-0">
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=vincentnguyentnt@gmail.com"
                 target="_blank"
@@ -158,7 +158,9 @@ export function Navigation() {
               </a>
             </div>
 
-            <div className="relative flex items-center bg-gray-100 rounded-full p-1">
+            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2"></div>
+
+            <div className="relative flex items-center bg-gray-100 rounded-full p-1 shrink-0">
               <button
                 onClick={() => setLanguage("vi")}
                 className={cn(

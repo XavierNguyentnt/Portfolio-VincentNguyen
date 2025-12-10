@@ -372,22 +372,16 @@ export default function Portfolio() {
                       <Building2 className="w-5 h-5 text-esg-green" />
                       <span>{job.company}</span>
                     </div>
-                    <ul
-                      className={cn(
-                        "space-y-3 text-gray-700 text-base leading-relaxed",
-                        index % 2 !== 0
-                          ? "list-disc list-inside"
-                          : "md:list-none md:text-right"
-                      )}>
+                    <ul className="space-y-2.5 text-gray-700 text-base leading-relaxed">
                       {job.description.map((desc, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          {index % 2 === 0 && (
-                            <span className="hidden md:block w-2 h-2 rounded-full bg-esg-green mt-2 shrink-0"></span>
-                          )}
-                          <span>{desc}</span>
-                          {index % 2 !== 0 && (
-                            <span className="w-2 h-2 rounded-full bg-esg-green mt-2 shrink-0"></span>
-                          )}
+                        <li
+                          key={i}
+                          className={cn(
+                            "flex items-start gap-3",
+                            index % 2 === 0 ? "md:flex-row-reverse" : ""
+                          )}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-esg-green mt-2.5 shrink-0 flex-shrink-0"></span>
+                          <span className="flex-1">{desc}</span>
                         </li>
                       ))}
                     </ul>

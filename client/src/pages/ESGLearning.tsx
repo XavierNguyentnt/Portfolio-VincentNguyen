@@ -3,6 +3,7 @@ import { useLanguage } from "@/components/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { Section, SectionTitle } from "@/components/Section";
 import { LazyBackgroundImage } from "@/components/LazyBackgroundImage";
+import { ESGContentCarousel } from "@/components/ESGContentCarousel";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
@@ -229,21 +230,34 @@ export default function ESGLearning() {
                 textShadow:
                   "0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1)",
               }}>
-              {language === "vi" ? "Học tập ESG của tôi" : "My ESG Learning"}
-            </h1>
-            <p
-              className="text-xl md:text-2xl text-gray-700 mb-8 font-medium leading-relaxed"
-              style={{
-                textShadow:
-                  "0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08)",
-              }}>
               {language === "vi"
-                ? "Học và ôn tập kiến thức ESG thông qua FlashCard"
-                : "Learn and review ESG knowledge through FlashCards"}
-            </p>
+                ? "Cùng tôi tìm hiểu về ESG"
+                : "Let's learn about ESG together"}
+            </h1>
           </motion.div>
         </div>
       </section>
+
+      {/* ESG Content Carousel Section */}
+      <Section id="content-carousel" className="bg-white !py-12 md:!py-16">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <SectionTitle className="text-center">
+              {language === "vi"
+                ? "Tài liệu cho người mới bắt đầu"
+                : "Documents for beginners"}
+            </SectionTitle>
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              {language === "vi"
+                ? "Khám phá các tài liệu và nội dung học tập ESG được sắp xếp theo chủ đề"
+                : "Explore ESG learning materials and content organized by topics"}
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <ESGContentCarousel language={language} />
+          </div>
+        </div>
+      </Section>
 
       {!selectedTopic ? (
         /* Topics Selection Section */
@@ -251,8 +265,8 @@ export default function ESGLearning() {
           <div className="text-center mb-16">
             <SectionTitle className="text-center">
               {language === "vi"
-                ? "Chọn chủ đề học tập"
-                : "Select Learning Topic"}
+                ? "FlashCard những điều cần nhớ"
+                : "FlashCards of important things to remember"}
             </SectionTitle>
             <p className="text-gray-600 mt-4">
               {language === "vi"
@@ -343,106 +357,130 @@ export default function ESGLearning() {
                 </span>
               </div>
 
-              {/* FlashCard */}
-              <div className="relative mb-8" style={{ perspective: "1000px" }}>
-                <motion.div
-                  key={currentIndex}
-                  initial={{ opacity: 0, rotateY: -90 }}
-                  animate={{ opacity: 1, rotateY: 0 }}
-                  exit={{ opacity: 0, rotateY: 90 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative w-full"
-                  style={{ transformStyle: "preserve-3d" }}>
-                  <div
-                    className="relative w-full h-[400px] cursor-pointer"
-                    onClick={handleFlip}
-                    style={{
-                      transformStyle: "preserve-3d",
-                      transform: isFlipped
-                        ? "rotateY(180deg)"
-                        : "rotateY(0deg)",
-                      transition: "transform 0.6s",
-                    }}>
-                    {/* Front of card (Question) */}
-                    <div
-                      className="absolute inset-0 w-full h-full rounded-3xl shadow-2xl p-8 flex items-center justify-center bg-gradient-to-br from-esg-green to-esg-blue text-white"
-                      style={{
-                        backfaceVisibility: "hidden",
-                        WebkitBackfaceVisibility: "hidden",
-                        transform: "rotateY(0deg)",
-                      }}>
-                      <div className="text-center">
-                        <div className="mb-4">
-                          <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">
-                            {language === "vi" ? "Câu hỏi" : "Question"}
-                          </span>
-                        </div>
-                        <h3
-                          className="text-2xl md:text-3xl font-bold leading-relaxed"
-                          style={{
-                            textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
-                          }}>
-                          {currentCard?.question}
-                        </h3>
-                        <p className="mt-6 text-white/80 text-sm">
-                          {language === "vi"
-                            ? "Nhấp để xem câu trả lời"
-                            : "Click to see answer"}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Back of card (Answer) */}
-                    <div
-                      className="absolute inset-0 w-full h-full rounded-3xl shadow-2xl p-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 text-gray-900 border-2 border-esg-green"
-                      style={{
-                        backfaceVisibility: "hidden",
-                        WebkitBackfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)",
-                      }}>
-                      <div className="text-center">
-                        <div className="mb-4">
-                          <span className="text-sm font-semibold bg-esg-green text-white px-3 py-1 rounded-full">
-                            {language === "vi" ? "Câu trả lời" : "Answer"}
-                          </span>
-                        </div>
-                        <p
-                          className="text-xl md:text-2xl leading-relaxed"
-                          style={{
-                            textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-                          }}>
-                          {currentCard?.answer}
-                        </p>
-                        <p className="mt-6 text-gray-500 text-sm">
-                          {language === "vi"
-                            ? "Nhấp để xem câu hỏi"
-                            : "Click to see question"}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Navigation Controls */}
-              <div className="flex items-center justify-center gap-4">
+              {/* FlashCard with Navigation */}
+              <div
+                className="relative mb-8 flex items-center gap-4"
+                style={{ perspective: "1000px" }}>
+                {/* Left Navigation Button */}
                 <button
                   onClick={handlePrevious}
-                  className="p-3 rounded-full bg-gray-100 hover:bg-esg-green hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
+                  className="hidden md:flex shrink-0 w-12 h-12 items-center justify-center rounded-full bg-white shadow-lg hover:bg-esg-green hover:text-white transition-all duration-300 border-2 border-gray-200 hover:border-esg-green z-10">
                   <ChevronLeft className="w-6 h-6" />
                 </button>
 
+                {/* FlashCard */}
+                <div
+                  className="flex-1 relative"
+                  style={{ perspective: "1000px" }}>
+                  <motion.div
+                    key={currentIndex}
+                    initial={{ opacity: 0, rotateY: -90 }}
+                    animate={{ opacity: 1, rotateY: 0 }}
+                    exit={{ opacity: 0, rotateY: 90 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative w-full"
+                    style={{ transformStyle: "preserve-3d" }}>
+                    <div
+                      className="relative w-full h-[400px] cursor-pointer"
+                      onClick={handleFlip}
+                      style={{
+                        transformStyle: "preserve-3d",
+                        transform: isFlipped
+                          ? "rotateY(180deg)"
+                          : "rotateY(0deg)",
+                        transition: "transform 0.6s",
+                      }}>
+                      {/* Front of card (Question) */}
+                      <div
+                        className="absolute inset-0 w-full h-full rounded-3xl shadow-2xl p-8 flex items-center justify-center bg-gradient-to-br from-esg-green to-esg-blue text-white"
+                        style={{
+                          backfaceVisibility: "hidden",
+                          WebkitBackfaceVisibility: "hidden",
+                          transform: "rotateY(0deg)",
+                        }}>
+                        <div className="text-center">
+                          <div className="mb-4">
+                            <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">
+                              {language === "vi" ? "Câu hỏi" : "Question"}
+                            </span>
+                          </div>
+                          <h3
+                            className="text-2xl md:text-3xl font-bold leading-relaxed"
+                            style={{
+                              textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+                            }}>
+                            {currentCard?.question}
+                          </h3>
+                          <p className="mt-6 text-white/80 text-sm">
+                            {language === "vi"
+                              ? "Nhấp để xem câu trả lời"
+                              : "Click to see answer"}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Back of card (Answer) */}
+                      <div
+                        className="absolute inset-0 w-full h-full rounded-3xl shadow-2xl p-8 flex items-center justify-center bg-gradient-to-br from-white to-gray-50 text-gray-900 border-2 border-esg-green"
+                        style={{
+                          backfaceVisibility: "hidden",
+                          WebkitBackfaceVisibility: "hidden",
+                          transform: "rotateY(180deg)",
+                        }}>
+                        <div className="text-center">
+                          <div className="mb-4">
+                            <span className="text-sm font-semibold bg-esg-green text-white px-3 py-1 rounded-full">
+                              {language === "vi" ? "Câu trả lời" : "Answer"}
+                            </span>
+                          </div>
+                          <p
+                            className="text-xl md:text-2xl leading-relaxed"
+                            style={{
+                              textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                            }}>
+                            {currentCard?.answer}
+                          </p>
+                          <p className="mt-6 text-gray-500 text-sm">
+                            {language === "vi"
+                              ? "Nhấp để xem câu hỏi"
+                              : "Click to see question"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Right Navigation Button */}
+                <button
+                  onClick={handleNext}
+                  className="hidden md:flex shrink-0 w-12 h-12 items-center justify-center rounded-full bg-white shadow-lg hover:bg-esg-green hover:text-white transition-all duration-300 border-2 border-gray-200 hover:border-esg-green z-10">
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Mobile Navigation Controls & Reset Button */}
+              <div className="flex flex-col items-center justify-center gap-4">
+                {/* Mobile Navigation Buttons */}
+                <div className="flex md:hidden items-center justify-center gap-4 w-full">
+                  <button
+                    onClick={handlePrevious}
+                    className="p-3 rounded-full bg-gray-100 hover:bg-esg-green hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="p-3 rounded-full bg-gray-100 hover:bg-esg-green hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
+
+                {/* Reset Button */}
                 <button
                   onClick={handleReset}
                   className="px-6 py-3 rounded-full bg-gray-100 hover:bg-esg-blue hover:text-white transition-all duration-300 shadow-md hover:shadow-lg font-semibold flex items-center gap-2">
                   <RotateCcw className="w-5 h-5" />
                   <span>{language === "vi" ? "Bắt đầu lại" : "Reset"}</span>
-                </button>
-
-                <button
-                  onClick={handleNext}
-                  className="p-3 rounded-full bg-gray-100 hover:bg-esg-green hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
-                  <ChevronRight className="w-6 h-6" />
                 </button>
               </div>
             </div>
