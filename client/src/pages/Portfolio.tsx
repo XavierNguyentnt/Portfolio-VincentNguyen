@@ -2,6 +2,8 @@ import React from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { Section, SectionTitle } from "@/components/Section";
+import { LazyBackgroundImage } from "@/components/LazyBackgroundImage";
+import { LazyPDFPreview } from "@/components/LazyPDFPreview";
 import { cn } from "@/lib/utils";
 import {
   Download,
@@ -21,6 +23,7 @@ import {
   Building2,
   Globe2,
   Award,
+  BookOpen,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -49,10 +52,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen text-gray-800 font-sans selection:bg-esg-green/20 relative">
-      {/* Background Image */}
-      <div
+      {/* Background Image - Lazy Loaded */}
+      <LazyBackgroundImage
+        src="/bg-image.webp"
         className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-fixed -z-10"
-        style={{ backgroundImage: "url(/bg-image.webp)" }}
       />
       {/* Overlay for better readability */}
       <div className="fixed inset-0 w-full h-full bg-white/85 backdrop-blur-[1px] -z-10" />
@@ -112,17 +115,30 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                href="https://www.canva.com/design/DAG661GQQ8o/Jppyk4-hLRaF8vSzOOlw6A/edit?utm_content=DAG661GQQ8o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-esg-green text-white rounded-lg font-semibold hover:bg-esg-green/90 transition-all duration-300 shadow-lg shadow-esg-green/30 hover:shadow-xl hover:shadow-esg-green/40 hover:-translate-y-1 active:translate-y-0">
-                <Download className="w-5 h-5" />
-                <span>{t.hero.cta}</span>
-              </motion.a>
+              <div className="flex flex-col gap-4">
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  href="https://www.canva.com/design/DAG661GQQ8o/Jppyk4-hLRaF8vSzOOlw6A/edit?utm_content=DAG661GQQ8o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-esg-green text-white rounded-lg font-semibold hover:bg-esg-green/90 transition-all duration-300 shadow-lg shadow-esg-green/30 hover:shadow-xl hover:shadow-esg-green/40 hover:-translate-y-1 active:translate-y-0">
+                  <Download className="w-5 h-5" />
+                  <span>{t.hero.cta}</span>
+                </motion.a>
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  href="/esg-learning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-esg-blue text-white rounded-lg font-semibold hover:bg-esg-blue/90 transition-all duration-300 shadow-lg shadow-esg-blue/30 hover:shadow-xl hover:shadow-esg-blue/40 hover:-translate-y-1 active:translate-y-0">
+                  <BookOpen className="w-5 h-5" />
+                  <span>Cùng tôi tìm hiểu về ESG</span>
+                </motion.a>
+              </div>
             </motion.div>
 
             <motion.div
@@ -138,6 +154,8 @@ export default function Portfolio() {
                     src="/profile-photo.jpg"
                     alt={t.hero.name}
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -532,14 +550,11 @@ export default function Portfolio() {
                 className="bg-white p-4 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col gap-4 group">
                 <div className="relative w-full overflow-hidden rounded-2xl border border-gray-100 shadow-inner bg-gray-50 aspect-[4/3]">
                   {cert.file ? (
-                    <object
-                      data={`${cert.file}#page=1&view=FitH`}
-                      type="application/pdf"
-                      className="w-full h-full">
-                      <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">
-                        PDF preview unavailable
-                      </div>
-                    </object>
+                    <LazyPDFPreview
+                      file={cert.file}
+                      className="w-full h-full"
+                      alt={`${cert.name} preview`}
+                    />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">
                       No preview

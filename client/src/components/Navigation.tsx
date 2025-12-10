@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageContext";
-import { Menu, X, Mail, Linkedin } from "lucide-react";
+import { Menu, X, Mail, Linkedin, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { useLocation } from "wouter";
 
 export function Navigation() {
   const { t, language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [location, setLocation] = useLocation();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -40,25 +42,45 @@ export function Navigation() {
   ) => {
     e.preventDefault();
 
-    const element = document.querySelector(href);
-    if (!element) return;
+    // Handle route navigation
+    if (href.startsWith("/")) {
+      if (isOpen) setIsOpen(false);
+      setLocation(href);
+      return;
+    }
 
-    // If mobile menu is open, close it first and wait for animation
-    if (isOpen) {
-      setIsOpen(false);
-      // Wait for menu close animation to complete (AnimatePresence exit)
-      setTimeout(() => {
+    // Handle anchor links (for Portfolio sections)
+    if (href.startsWith("#")) {
+      // If we're not on the Portfolio page, navigate to it first with anchor
+      if (location !== "/") {
+        if (isOpen) setIsOpen(false);
+        // Set hash before navigation so ScrollToAnchor can handle it
+        window.location.hash = href;
+        setLocation("/");
+        return;
+      }
+
+      // We're on Portfolio page, scroll to section
+      const element = document.querySelector(href);
+      if (!element) return;
+
+      // If mobile menu is open, close it first and wait for animation
+      if (isOpen) {
+        setIsOpen(false);
+        // Wait for menu close animation to complete (AnimatePresence exit)
+        setTimeout(() => {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 350); // Slightly longer than animation duration to ensure menu is fully closed
+      } else {
+        // Desktop: scroll immediately
         element.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-      }, 350); // Slightly longer than animation duration to ensure menu is fully closed
-    } else {
-      // Desktop: scroll immediately
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      }
     }
   };
 
@@ -77,8 +99,12 @@ export function Navigation() {
             scrolled ? "min-h-[64px] py-3" : "min-h-[80px] py-5"
           )}>
           <a
-            href="#"
-            onClick={(e) => handleLinkClick(e, "#hero")}
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              if (isOpen) setIsOpen(false);
+              setLocation("/");
+            }}
             className="absolute left-6 text-xl font-bold tracking-tight text-esg-green flex items-center gap-2 h-full">
             <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg shrink-0">
               V
@@ -100,6 +126,18 @@ export function Navigation() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esg-green transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+
+            <div className="h-4 w-px bg-gray-300 mx-2"></div>
+
+            <a
+              href="/esg-learning"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group flex items-center gap-2">
+              <BookOpen className="w-4 h-4" />
+              <span>{language === "vi" ? "Học tập ESG" : "ESG Learning"}</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esg-green transition-all duration-300 group-hover:w-full"></span>
+            </a>
 
             <div className="h-4 w-px bg-gray-300 mx-2"></div>
 
@@ -225,6 +263,17 @@ export function Navigation() {
                     {link.label}
                   </a>
                 ))}
+                <a
+                  href="/esg-learning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-medium text-gray-600 hover:text-esg-green py-2 flex items-center gap-2">
+                  <BookOpen className="w-5 h-5" />
+                  <span>
+                    {language === "vi" ? "Học tập ESG" : "ESG Learning"}
+                  </span>
+                </a>
                 <div className="flex gap-4 pt-4 border-t border-gray-100 mt-2">
                   <a
                     href="https://mail.google.com/mail/?view=cm&fs=1&to=vincentnguyentnt@gmail.com"

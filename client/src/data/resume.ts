@@ -18,6 +18,7 @@ export const content = {
       tagline:
         "Committed to sustainable value creation through compliance, transparency, and responsible management.",
       cta: "View and download my CV",
+      esgLearningCta: "Learn about ESG with me",
     },
     about: {
       title: "About Me",
@@ -181,7 +182,7 @@ export const content = {
         {
           name: "ESG for All",
           issuer: "Coursera",
-          url: "https://www.coursera.org/account/accomplishments/verify/113O6TJ19JJQ",
+          url: "https://www.coursera.org/account/accomplishments/specialization/113O6TJ19JJQ",
           file: "/certificates/[Main]_Duke_ESG for All_Coursera 113O6TJ19JJQ.pdf",
         },
         {
@@ -421,7 +422,7 @@ export const content = {
         {
           name: "ESG for All",
           issuer: "Coursera",
-          url: "https://www.coursera.org/account/accomplishments/verify/113O6TJ19JJQ",
+          url: "https://www.coursera.org/account/accomplishments/specialization/113O6TJ19JJQ",
           file: "/certificates/[Main]_Duke_ESG for All_Coursera 113O6TJ19JJQ.pdf",
         },
         {
