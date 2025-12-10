@@ -27,7 +27,7 @@ export function Navigation() {
     { href: "#about", label: t.nav.about },
     { href: "#skills", label: t.nav.skills },
     { href: "#experience", label: t.nav.experience },
-    { href: "#projects", label: t.nav.projects },
+    { href: "#coreValues", label: t.nav.coreValues },
     { href: "#education", label: t.nav.education },
     { href: "#languages", label: t.nav.languages },
     { href: "#certificates", label: t.nav.certificates },

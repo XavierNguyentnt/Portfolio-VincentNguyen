@@ -6,7 +6,7 @@ export const content = {
       about: "About",
       skills: "Skills",
       experience: "Experience",
-      projects: "Projects",
+      coreValues: "Core Values",
       education: "Education",
       languages: "Languages",
       certificates: "Certificates",
@@ -105,23 +105,38 @@ export const content = {
         },
       ],
     },
-    projects: {
-      title: "Featured Projects",
+    coreValues: {
+      title: "Core Values",
       items: [
         {
-          title: "Internal Compliance System",
+          title: "Systems Thinking & Process Standardization",
           description:
-            "Standardized compliance documentation. Reduced audit preparation time by 30–40%. Improved cross-department cooperation and CAP closure rate.",
+            "Build and standardize compliance documentation systems, reducing audit preparation time by 30–40%; establish foundations for evidence control, record management, and enhanced readiness for ESG assessments.",
         },
         {
-          title: "Translation and Promotion of Eastern Classics Project",
+          title: "Project Management & Cross-Department Coordination",
           description:
-            "Managed translation contract implementation progress; Advised related departments to establish operational procedures and professional documentation management. Proposed necessary innovations to improve translation component management efficiency.",
+            "Effectively coordinate large-scale translation project components. Advise on process development, workflow operations, and progress control mechanisms, helping improve productivity and reduce operational risks.",
         },
         {
-          title: "Third-Party Audit Preparation (Apparel Industry)",
+          title: "Internal Audit Capability & Compliance Control",
           description:
-            "Supported multiple high-standard audits: Better Work, Higg Index, ZDHC, GOTS, OCS, RCS, LABS,...",
+            "Deep understanding of compliance operations across: environment, labor, OHS, fire safety, security. Direct experience tracking NCRs, CAPs, and managing evidence records.",
+        },
+        {
+          title: "Practical Experience with ESG/CSR Standards",
+          description:
+            "Participated in multiple high-standard assessments in the apparel industry: Better Work, Higg Index, ZDHC, GOTS, OCS, RCS, LABS,... contributing to improved compliance rates and customer requirement fulfillment capacity.",
+        },
+        {
+          title: "Analytical Thinking & Data Processing Capability",
+          description:
+            "Academic research background, logical analysis ability, SOP and procedure writing, professional reporting. Easily adapts to international ESG standard frameworks.",
+        },
+        {
+          title: "Effective Communication & Cross-Cultural Skills",
+          description:
+            "Worked in Taiwan in a multicultural environment; communicates with stakeholders (Employer - Employees) calmly, focused, and solution-oriented.",
         },
       ],
     },
@@ -203,7 +218,7 @@ export const content = {
       about: "Giới thiệu",
       skills: "Kỹ năng",
       experience: "Kinh nghiệm",
-      projects: "Dự án",
+      coreValues: "Giá trị cốt lõi",
       education: "Học vấn",
       languages: "Ngôn ngữ",
       certificates: "Chứng chỉ",
@@ -302,24 +317,38 @@ export const content = {
         },
       ],
     },
-    projects: {
-      title: "Dự án Tiêu biểu",
+    coreValues: {
+      title: "Giá trị cốt lõi",
       items: [
         {
-          title: "Hệ thống tuân thủ nội bộ",
+          title: "Tư duy hệ thống & Chuẩn hóa quy trình",
           description:
-            "Chuẩn hóa tài liệu tuân thủ. Giảm 30–40% thời gian chuẩn bị đánh giá. Cải thiện hợp tác liên phòng ban và tỷ lệ đóng CAP.",
+            "Xây dựng và chuẩn hóa hệ thống tài liệu tuân thủ, rút ngắn 30–40% thời gian chuẩn bị đánh giá; tạo nền tảng cho việc kiểm soát bằng chứng, quản lý hồ sơ, và tăng khả năng sẵn sàng cho các cuộc đánh giá ESG.",
         },
         {
-          title:
-            "Dự án Dịch thuật và phát huy giá trị tinh hoa các tác phẩm kinh điển phương Đông",
+          title: "Quản lý dự án & Điều phối liên phòng ban",
           description:
-            "Quản lý tiến độ thực hiện các hợp đồng dịch thuật; Tham mưu với các phòng liên quan để xây dựng quy trình vận hành và quản lý tài liệu chuyên môn. Đề xuất phương án đổi mới cần thiết để nâng cao hiệu quả quản lý hợp phần dịch thuật.",
+            "Điều phối hiệu quả các hợp phần dự án dịch thuật quy mô lớn. Tham mưu xây dựng quy trình, vận hành công việc và cơ chế kiểm soát tiến độ, giúp nâng cao năng suất và giảm rủi ro vận hành.",
         },
         {
-          title: "Chuẩn bị đánh giá bên thứ ba (ngành May mặc)",
+          title: "Năng lực đánh giá nội bộ & Kiểm soát tuân thủ",
           description:
-            "Hỗ trợ nhiều kỳ đánh giá tiêu chuẩn cao: Better Work, Higg Index, ZDHC, GOTS, OCS, RCS, LABS,...",
+            "Am hiểu vận hành tuân thủ trong các lĩnh vực: môi trường, lao động, ATVSLĐ, PCCC, an ninh. Có kinh nghiệm trực tiếp theo dõi NCR, CAP và quản lý hồ sơ minh chứng.",
+        },
+        {
+          title: "Kinh nghiệm thực tiễn với tiêu chuẩn ESG/CSR",
+          description:
+            "Tham gia nhiều kỳ đánh giá tiêu chuẩn cao trong ngành may mặc: Better Work, Higg Index, ZDHC, GOTS, OCS, RCS, LABS,... góp phần cải thiện tỷ lệ tuân thủ và năng lực đáp ứng yêu cầu khách hàng.",
+        },
+        {
+          title: "Tư duy phân tích & Năng lực xử lý dữ liệu",
+          description:
+            "Có nền tảng nghiên cứu học thuật, khả năng phân tích logic, biên soạn SOP, quy trình, báo cáo chuyên môn. Dễ dàng thích ứng với bộ tiêu chuẩn ESG quốc tế.",
+        },
+        {
+          title: "Giao tiếp hiệu quả & Kỹ năng đa văn hóa",
+          description:
+            "Từng làm việc tại Đài Loan trong môi trường đa văn hóa; giao tiếp với các bên liên quan (Người sử dụng lao động – Người lao động) một cách bình tĩnh, có trọng tâm và hướng đến giải pháp.",
         },
       ],
     },

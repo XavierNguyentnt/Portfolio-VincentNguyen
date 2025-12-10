@@ -339,15 +339,15 @@ export default function Portfolio() {
         </div>
       </Section>
 
-      {/* Projects Section */}
-      <Section id="projects" className="bg-white">
+      {/* Core Values Section */}
+      <Section id="coreValues" className="bg-white">
         <div className="text-center mb-16">
           <SectionTitle className="text-center">
-            {t.projects.title}
+            {t.coreValues.title}
           </SectionTitle>
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {t.projects.items.map((project, index) => (
+          {t.coreValues.items.map((value, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -359,10 +359,10 @@ export default function Portfolio() {
                 <Briefcase className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-5">
-                {project.title}
+                {value.title}
               </h3>
               <p className="text-gray-700 leading-relaxed flex-grow text-base">
-                {project.description}
+                {value.description}
               </p>
             </motion.div>
           ))}
