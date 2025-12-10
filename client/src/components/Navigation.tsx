@@ -26,14 +26,14 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: t.nav.about },
-    { href: "#skills", label: t.nav.skills },
-    { href: "#experience", label: t.nav.experience },
-    { href: "#coreValues", label: t.nav.coreValues },
-    { href: "#education", label: t.nav.education },
-    { href: "#languages", label: t.nav.languages },
-    { href: "#certificates", label: t.nav.certificates },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#about", label: t.nav.about, priority: "high" },
+    { href: "#skills", label: t.nav.skills, priority: "high" },
+    { href: "#experience", label: t.nav.experience, priority: "high" },
+    { href: "#coreValues", label: t.nav.coreValues, priority: "medium" },
+    { href: "#education", label: t.nav.education, priority: "high" },
+    { href: "#languages", label: t.nav.languages, priority: "medium" },
+    { href: "#certificates", label: t.nav.certificates, priority: "medium" },
+    { href: "#contact", label: t.nav.contact, priority: "high" },
   ];
 
   const handleLinkClick = (
@@ -95,8 +95,8 @@ export function Navigation() {
         )}>
         <div
           className={cn(
-            "container mx-auto px-6 flex items-center justify-between relative transition-all duration-500 overflow-hidden",
-            scrolled ? "min-h-[64px] py-3" : "min-h-[80px] py-5"
+            "container mx-auto px-4 sm:px-6 flex items-center justify-between relative transition-all duration-500 overflow-hidden",
+            scrolled ? "min-h-[56px] sm:min-h-[64px] py-2 sm:py-3" : "min-h-[64px] sm:min-h-[80px] py-3 sm:py-5"
           )}>
           <a
             href="/"
@@ -105,66 +105,70 @@ export function Navigation() {
               if (isOpen) setIsOpen(false);
               setLocation("/");
             }}
-            className="text-xl font-bold tracking-tight text-esg-green flex items-center gap-2 h-full shrink-0 z-10">
+            className="text-xl font-bold tracking-tight text-esg-green flex items-center gap-2 h-full shrink-0 z-10 min-w-0 max-w-[200px] sm:max-w-none">
             <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg shrink-0">
               V
             </div>
-            <span className="hidden sm:inline-block whitespace-nowrap">
+            <span className="hidden sm:inline-block whitespace-nowrap truncate">
               Vincent Nguyen
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-4 xl:gap-6 h-full flex-1 justify-center max-w-5xl mx-auto px-4">
+          <nav className="hidden xl:flex items-center gap-2 xl:gap-3 2xl:gap-4 h-full flex-1 justify-center max-w-5xl mx-auto px-2 xl:px-4 min-w-0">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-xs xl:text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group whitespace-nowrap">
+                className={cn(
+                  "text-xs xl:text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group whitespace-nowrap shrink-0",
+                  link.priority === "medium" && "hidden 2xl:inline-block"
+                )}>
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esg-green transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
 
-            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2"></div>
+            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2 shrink-0"></div>
 
             <a
               href="/esg-learning"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs xl:text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group flex items-center gap-1.5 xl:gap-2 whitespace-nowrap">
-              <BookOpen className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
-              <span>{language === "vi" ? "Học tập ESG" : "ESG Learning"}</span>
+              className="text-xs xl:text-sm font-semibold text-gray-700 hover:text-esg-green transition-all duration-300 relative group flex items-center gap-1.5 xl:gap-2 whitespace-nowrap shrink-0">
+              <BookOpen className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
+              <span className="hidden 2xl:inline">{language === "vi" ? "Học tập ESG" : "ESG Learning"}</span>
+              <span className="2xl:hidden">{language === "vi" ? "ESG" : "ESG"}</span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esg-green transition-all duration-300 group-hover:w-full"></span>
             </a>
 
-            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2"></div>
+            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2 shrink-0"></div>
 
             <div className="flex items-center gap-2 xl:gap-3 shrink-0">
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=vincentnguyentnt@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-esg-green transition-colors">
+                className="text-gray-500 hover:text-esg-green transition-colors shrink-0">
                 <Mail className="w-4 h-4" />
               </a>
               <a
                 href="https://www.linkedin.com/in/vinh-nguyen-viet-276490393/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-[#0077b5] transition-colors">
+                className="text-gray-500 hover:text-[#0077b5] transition-colors shrink-0">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
 
-            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2"></div>
+            <div className="h-4 w-px bg-gray-300 mx-1 xl:mx-2 shrink-0"></div>
 
             <div className="relative flex items-center bg-gray-100 rounded-full p-1 shrink-0">
               <button
                 onClick={() => setLanguage("vi")}
                 className={cn(
-                  "relative z-10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
+                  "relative z-10 px-3 xl:px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
                   language === "vi"
                     ? "text-white"
                     : "text-gray-600 hover:text-gray-900"
@@ -174,7 +178,7 @@ export function Navigation() {
               <button
                 onClick={() => setLanguage("en")}
                 className={cn(
-                  "relative z-10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
+                  "relative z-10 px-3 xl:px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors rounded-full",
                   language === "en"
                     ? "text-white"
                     : "text-gray-600 hover:text-gray-900"
@@ -198,7 +202,7 @@ export function Navigation() {
           </nav>
 
           {/* Mobile Toggle */}
-          <div className="flex items-center gap-4 xl:hidden absolute right-6 h-full">
+          <div className="flex items-center gap-2 sm:gap-4 xl:hidden absolute right-4 sm:right-6 h-full z-20">
             <div className="relative flex items-center bg-gray-100 rounded-full p-1">
               <button
                 onClick={() => setLanguage("vi")}
@@ -255,7 +259,7 @@ export function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="xl:hidden bg-white border-b border-gray-100 overflow-hidden">
-              <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+              <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-col gap-3 sm:gap-4">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
