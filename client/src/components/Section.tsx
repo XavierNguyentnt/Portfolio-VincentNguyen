@@ -38,7 +38,8 @@ export function SectionTitle({
       className={cn(
         "text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 relative inline-block tracking-tight",
         className
-      )}>
+      )}
+      style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)' }}>
       {children}
     </h2>
   );

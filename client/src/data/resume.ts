@@ -17,7 +17,7 @@ export const content = {
       title: "ESG Officer | CSR Compliance Specialist | Project Coordinator",
       tagline:
         "Committed to sustainable value creation through compliance, transparency, and responsible management.",
-      cta: "Download CV",
+      cta: "View and download my CV",
     },
     about: {
       title: "About Me",
@@ -229,7 +229,7 @@ export const content = {
       title: "Chuyên viên ESG | Nhân viên Tuân thủ CSR | Điều phối Dự án",
       tagline:
         "Cam kết tạo ra giá trị bền vững thông qua tuân thủ, minh bạch và quản trị có trách nhiệm.",
-      cta: "Tải CV",
+      cta: "Xem và tải về  CV  của tôi",
     },
     about: {
       title: "Giới thiệu",

@@ -71,10 +71,11 @@ export function Navigation() {
             ? "bg-white/95 backdrop-blur-xl shadow-lg border-gray-200/50"
             : "bg-transparent"
         )}>
-        <div className={cn(
-          "container mx-auto px-6 flex items-center justify-center relative transition-all duration-500 overflow-hidden",
-          scrolled ? "min-h-[64px] py-3" : "min-h-[80px] py-5"
-        )}>
+        <div
+          className={cn(
+            "container mx-auto px-6 flex items-center justify-center relative transition-all duration-500 overflow-hidden",
+            scrolled ? "min-h-[64px] py-3" : "min-h-[80px] py-5"
+          )}>
           <a
             href="#"
             onClick={(e) => handleLinkClick(e, "#hero")}
@@ -82,7 +83,9 @@ export function Navigation() {
             <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg shrink-0">
               V
             </div>
-            <span className="hidden sm:inline-block whitespace-nowrap">Nguyen Viet Vinh</span>
+            <span className="hidden sm:inline-block whitespace-nowrap">
+              Vincent Nguyen
+            </span>
           </a>
 
           {/* Desktop Nav */}

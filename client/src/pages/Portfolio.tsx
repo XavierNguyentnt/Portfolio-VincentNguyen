@@ -50,19 +50,19 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen text-gray-800 font-sans selection:bg-esg-green/20 relative">
       {/* Background Image */}
-      <div 
+      <div
         className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-fixed -z-10"
-        style={{ backgroundImage: 'url(/bg-image.webp)' }}
+        style={{ backgroundImage: "url(/bg-image.webp)" }}
       />
       {/* Overlay for better readability */}
       <div className="fixed inset-0 w-full h-full bg-white/85 backdrop-blur-[1px] -z-10" />
-      
+
       <Navigation />
 
       {/* Hero Section */}
       <section
         id="hero"
-        className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-24 pb-16">
+        className="min-h-[85vh] flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-24 pb-16">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-esg-green/5 blur-3xl rounded-full transform translate-x-1/3 -translate-y-1/4"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-esg-blue/5 blur-3xl rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
 
@@ -80,17 +80,34 @@ export default function Portfolio() {
                 className="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-widest text-esg-green bg-esg-green/10 rounded-full uppercase border border-esg-green/20">
                 Portfolio
               </motion.span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-[1.1] tracking-tight">
+              <h1
+                className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-[1.1] tracking-tight"
+                style={{
+                  textShadow:
+                    "0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1)",
+                }}>
                 <span className="block mb-2">{t.hero.name.split(" ")[0]}</span>
-                <span className="block text-esg-green">
+                <span
+                  className="block text-esg-green"
+                  style={{
+                    textShadow:
+                      "0 2px 8px rgba(46, 125, 50, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1)",
+                  }}>
                   {t.hero.name.split(" ").slice(1).join(" ")}
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-6 font-medium leading-relaxed max-w-2xl">
+              <p
+                className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-6 font-medium leading-relaxed max-w-2xl"
+                style={{
+                  textShadow:
+                    "0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08)",
+                }}>
                 {t.hero.title}
               </p>
               <div className="border-l-4 border-esg-blue pl-6 py-2 my-8">
-                <p className="text-lg md:text-xl text-gray-600 italic leading-relaxed max-w-xl">
+                <p
+                  className="text-lg md:text-xl text-gray-600 italic leading-relaxed max-w-xl"
+                  style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}>
                   "{t.hero.tagline}"
                 </p>
               </div>
@@ -208,7 +225,12 @@ export default function Portfolio() {
             <div className="w-16 h-16 bg-gradient-to-br from-esg-green/20 to-esg-green/10 rounded-2xl flex items-center justify-center mb-6 text-esg-green group-hover:scale-110 transition-transform duration-300">
               <ShieldCheck className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3
+              className="text-2xl font-bold text-gray-900 mb-6"
+              style={{
+                textShadow:
+                  "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+              }}>
               {t.skills.categories.esg.title}
             </h3>
             <ul className="space-y-4">
@@ -233,7 +255,12 @@ export default function Portfolio() {
             <div className="w-16 h-16 bg-gradient-to-br from-esg-blue/20 to-esg-blue/10 rounded-2xl flex items-center justify-center mb-6 text-esg-blue group-hover:scale-110 transition-transform duration-300">
               <BarChart3 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3
+              className="text-2xl font-bold text-gray-900 mb-6"
+              style={{
+                textShadow:
+                  "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+              }}>
               {t.skills.categories.project.title}
             </h3>
             <ul className="space-y-4">
@@ -258,7 +285,12 @@ export default function Portfolio() {
             <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform duration-300">
               <Search className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3
+              className="text-2xl font-bold text-gray-900 mb-6"
+              style={{
+                textShadow:
+                  "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+              }}>
               {t.skills.categories.research.title}
             </h3>
             <ul className="space-y-4">
@@ -309,7 +341,9 @@ export default function Portfolio() {
                     <span className="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-wider text-esg-blue bg-gradient-to-r from-esg-blue/10 to-esg-blue/5 rounded-full border border-esg-blue/20">
                       {job.period}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                    <h3
+                      className="text-xl md:text-2xl font-bold text-gray-900 mb-3"
+                      style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}>
                       {job.role}
                     </h3>
                     <div
@@ -366,7 +400,12 @@ export default function Portfolio() {
               <div className="w-16 h-16 bg-gradient-to-br from-esg-green/20 to-esg-green/10 rounded-2xl flex items-center justify-center mb-6 text-esg-green group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                 <Briefcase className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-5">
+              <h3
+                className="text-2xl font-bold text-gray-900 mb-5"
+                style={{
+                  textShadow:
+                    "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+                }}>
                 {value.title}
               </h3>
               <p className="text-gray-700 leading-relaxed flex-grow text-base">
@@ -417,7 +456,7 @@ export default function Portfolio() {
                       </span>
                     </div>
                     {edu.achievement && (
-                      <p className="mt-4 text-sm text-gray-600 italic leading-relaxed border-l-2 border-esg-green/30 pl-4">
+                      <p className="mt-4 text-m text-gray-600 italic leading-relaxed border-l-2 border-esg-green/30 pl-4">
                         {edu.achievement}
                       </p>
                     )}
