@@ -68,22 +68,25 @@ export function Navigation() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent",
           scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-lg border-gray-200/50 py-3"
-            : "bg-transparent py-5"
+            ? "bg-white/95 backdrop-blur-xl shadow-lg border-gray-200/50"
+            : "bg-transparent"
         )}>
-        <div className="container mx-auto px-6 flex items-center justify-center relative">
+        <div className={cn(
+          "container mx-auto px-6 flex items-center justify-center relative transition-all duration-500 overflow-hidden",
+          scrolled ? "min-h-[64px] py-3" : "min-h-[80px] py-5"
+        )}>
           <a
             href="#"
             onClick={(e) => handleLinkClick(e, "#hero")}
-            className="absolute left-6 text-xl font-bold tracking-tight text-esg-green flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg">
+            className="absolute left-6 text-xl font-bold tracking-tight text-esg-green flex items-center gap-2 h-full">
+            <div className="w-8 h-8 rounded-lg bg-esg-green text-white flex items-center justify-center font-serif text-lg shrink-0">
               V
             </div>
-            <span className="hidden sm:inline-block">Nguyen Viet Vinh</span>
+            <span className="hidden sm:inline-block whitespace-nowrap">Nguyen Viet Vinh</span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-8 h-full">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -152,7 +155,7 @@ export function Navigation() {
           </nav>
 
           {/* Mobile Toggle */}
-          <div className="flex items-center gap-4 lg:hidden absolute right-6">
+          <div className="flex items-center gap-4 xl:hidden absolute right-6 h-full">
             <div className="relative flex items-center bg-gray-100 rounded-full p-1">
               <button
                 onClick={() => setLanguage("vi")}
@@ -208,7 +211,7 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-b border-gray-100 overflow-hidden">
+              className="xl:hidden bg-white border-b border-gray-100 overflow-hidden">
               <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <a

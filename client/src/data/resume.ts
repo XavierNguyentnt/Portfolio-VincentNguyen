@@ -85,7 +85,7 @@ export const content = {
         {
           role: "Project Assistant / Senior Clerk",
           company: "Yi Da Vietnam Limited",
-          period: "04/2019 – 01/2020",
+          period: "04/2019 – 12/2019",
           description: [
             "Managed construction project documentation for the Company.",
             "Supervised contractor progress and construction quality.",
