@@ -521,7 +521,7 @@ export default function Portfolio() {
               {t.certificates.title}
             </SectionTitle>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {t.certificates.items.map((cert, index) => (
               <motion.div
                 key={index}
@@ -529,29 +529,49 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mb-5 text-orange-500 shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Award className="w-8 h-8" />
+                className="bg-white p-4 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col gap-4 group">
+                <div className="relative w-full overflow-hidden rounded-2xl border border-gray-100 shadow-inner bg-gray-50 aspect-[4/3]">
+                  {cert.file ? (
+                    <object
+                      data={`${cert.file}#page=1&view=FitH`}
+                      type="application/pdf"
+                      className="w-full h-full">
+                      <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">
+                        PDF preview unavailable
+                      </div>
+                    </object>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">
+                      No preview
+                    </div>
+                  )}
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 text-esg-green text-xs font-bold rounded-full shadow-lg border border-esg-green/30 backdrop-blur-sm hover:bg-esg-green hover:text-white transition-colors">
+                      {language === "vi" ? "Xem chứng chỉ" : "View"}
+                    </a>
+                  )}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
-                  {cert.name}
-                </h3>
-                <p className="text-sm font-semibold text-gray-600 mb-4">
-                  {cert.issuer}
-                </p>
-                {cert.date && (
-                  <p className="text-xs text-gray-500 mb-4">{cert.date}</p>
-                )}
-                {cert.url && (
-                  <a
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-esg-green hover:text-esg-green/80 font-bold mt-auto inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                    {language === "vi" ? "Xem chứng chỉ" : "View Certificate"}
-                    <span>→</span>
-                  </a>
-                )}
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center text-orange-500 shrink-0 shadow-sm">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 leading-tight">
+                      {cert.name}
+                    </h3>
+                    <p className="text-sm font-semibold text-gray-600">
+                      {cert.issuer}
+                    </p>
+                    {cert.date && (
+                      <p className="text-xs text-gray-500 mt-1">{cert.date}</p>
+                    )}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

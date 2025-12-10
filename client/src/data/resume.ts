@@ -179,26 +179,54 @@ export const content = {
       title: "Certifications",
       items: [
         {
+          name: "ESG for All",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/113O6TJ19JJQ",
+          file: "/certificates/[Main]_Duke_ESG for All_Coursera 113O6TJ19JJQ.pdf",
+        },
+        {
+          name: "ESG Mindsets for Business Transformation",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/N9T1DLSY0UWJ",
+          file: "/certificates/Duke_ESG Mindsets for Business Transformation_Coursera N9T1DLSY0UWJ.pdf",
+        },
+        {
+          name: "ESG Challenges and Solutions for Business",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/N1PM7PBFNMQJ",
+          file: "/certificates/Duke_ESG Challenges and Solutions for Business_Coursera N1PM7PBFNMQJ.pdf",
+        },
+        {
           name: "ESG Communication for Inclusive Dialogue",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/R3VF8QGBV2IJ",
+          file: "/certificates/Duke_ESG Communication for Inclusive Dialogue_Coursera R3VF8QGBV2IJ.pdf",
         },
         {
           name: "ESG Essentials for Sustainable Business",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/OIWT3F9BPMS9",
+          file: "/certificates/Duke_Corporate_Education_ESG Essentials for Sustainable Business_Coursera OIWT3F9BPMS9.pdf",
         },
         {
           name: "ESG Value Creation for Business Impact",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/Q52S2U9Z68FW",
+          file: "/certificates/Duke_ESG Value Creation for Business Impact_Coursera Q52S2U9Z68FW.pdf",
         },
         {
           name: "Machine Learning for All",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/KXO5D0OOI4F3",
+          file: "/certificates/University of London_Machine Learning for All_Coursera KXO5D0OOI4F3.pdf",
         },
-      ] as Array<{ name: string; issuer: string; date?: string; url?: string }>,
+      ] as Array<{
+        name: string;
+        issuer: string;
+        date?: string;
+        url?: string;
+        file?: string;
+      }>,
     },
     contact: {
       title: "Contact",
@@ -391,26 +419,54 @@ export const content = {
       title: "Chứng chỉ",
       items: [
         {
+          name: "ESG for All",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/113O6TJ19JJQ",
+          file: "/certificates/[Main]_Duke_ESG for All_Coursera 113O6TJ19JJQ.pdf",
+        },
+        {
+          name: "ESG Mindsets for Business Transformation",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/N9T1DLSY0UWJ",
+          file: "/certificates/Duke_ESG Mindsets for Business Transformation_Coursera N9T1DLSY0UWJ.pdf",
+        },
+        {
+          name: "ESG Challenges and Solutions for Business",
+          issuer: "Coursera",
+          url: "https://www.coursera.org/account/accomplishments/verify/N1PM7PBFNMQJ",
+          file: "/certificates/Duke_ESG Challenges and Solutions for Business_Coursera N1PM7PBFNMQJ.pdf",
+        },
+        {
           name: "ESG Communication for Inclusive Dialogue",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/R3VF8QGBV2IJ",
+          file: "/certificates/Duke_ESG Communication for Inclusive Dialogue_Coursera R3VF8QGBV2IJ.pdf",
         },
         {
           name: "ESG Essentials for Sustainable Business",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/OIWT3F9BPMS9",
+          file: "/certificates/Duke_Corporate_Education_ESG Essentials for Sustainable Business_Coursera OIWT3F9BPMS9.pdf",
         },
         {
           name: "ESG Value Creation for Business Impact",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/Q52S2U9Z68FW",
+          file: "/certificates/Duke_ESG Value Creation for Business Impact_Coursera Q52S2U9Z68FW.pdf",
         },
         {
           name: "Machine Learning for All",
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/KXO5D0OOI4F3",
+          file: "/certificates/University of London_Machine Learning for All_Coursera KXO5D0OOI4F3.pdf",
         },
-      ] as Array<{ name: string; issuer: string; date?: string; url?: string }>,
+      ] as Array<{
+        name: string;
+        issuer: string;
+        date?: string;
+        url?: string;
+        file?: string;
+      }>,
     },
     contact: {
       title: "Liên hệ",
