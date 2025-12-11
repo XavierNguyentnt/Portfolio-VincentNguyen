@@ -326,6 +326,7 @@ export const content = {
             "Soạn SOP, chuẩn hóa tài liệu, báo cáo tiến độ định kỳ",
             "Theo dõi tiến độ, quản lý rủi ro, điều phối nhóm thư ký chuyên môn",
             "Quản lý hồ sơ, hợp đồng và ngân sách",
+            "Uỷ viên Ban Thanh tra Nhân dân - Viện Trần Nhân Tông (01/2024 đến nay)",
           ],
         },
         {
