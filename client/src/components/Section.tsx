@@ -13,13 +13,13 @@ export function Section({ id, className, children, delay = 0 }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn("py-20 md:py-32 scroll-mt-32 md:scroll-mt-40", className)}>
+      className={cn("py-12 sm:py-16 md:py-20 lg:py-32 scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-40", className)}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, delay }}
-        className="container mx-auto px-6">
+        className="container mx-auto px-4 sm:px-6">
         {children}
       </motion.div>
     </section>
@@ -36,7 +36,7 @@ export function SectionTitle({
   return (
     <h2
       className={cn(
-        "text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 relative inline-block tracking-tight",
+        "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-3 sm:mb-4 relative inline-block tracking-tight",
         className
       )}
       style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)' }}>

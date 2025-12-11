@@ -65,31 +65,33 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section
         id="hero"
-        className="min-h-[85vh] flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-24 pb-16">
+        className="min-h-[85vh] flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-20 sm:pt-24 pb-12 sm:pb-16">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-esg-green/5 blur-3xl rounded-full transform translate-x-1/3 -translate-y-1/4"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-esg-blue/5 blur-3xl rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
 
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6">
+              className="space-y-4 sm:space-y-6">
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-widest text-esg-green bg-esg-green/10 rounded-full uppercase border border-esg-green/20">
+                className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 text-xs font-bold tracking-widest text-esg-green bg-esg-green/10 rounded-full uppercase border border-esg-green/20">
                 Portfolio
               </motion.span>
               <h1
-                className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-[1.1] tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-[1.1] tracking-tight"
                 style={{
                   textShadow:
                     "0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1)",
                 }}>
-                <span className="block mb-2">{t.hero.name.split(" ")[0]}</span>
+                <span className="block mb-1 sm:mb-2">
+                  {t.hero.name.split(" ")[0]}
+                </span>
                 <span
                   className="block text-esg-green"
                   style={{
@@ -100,22 +102,22 @@ export default function Portfolio() {
                 </span>
               </h1>
               <p
-                className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-6 font-medium leading-relaxed max-w-2xl"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 mb-4 sm:mb-6 font-medium leading-relaxed max-w-2xl"
                 style={{
                   textShadow:
                     "0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08)",
                 }}>
                 {t.hero.title}
               </p>
-              <div className="border-l-4 border-esg-blue pl-6 py-2 my-8">
+              <div className="border-l-4 border-esg-blue pl-4 sm:pl-6 py-2 my-6 sm:my-8">
                 <p
-                  className="text-lg md:text-xl text-gray-600 italic leading-relaxed max-w-xl"
+                  className="text-base sm:text-lg md:text-xl text-gray-600 italic leading-relaxed max-w-xl"
                   style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}>
                   "{t.hero.tagline}"
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 <motion.a
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -123,8 +125,8 @@ export default function Portfolio() {
                   href="https://www.canva.com/design/DAG661GQQ8o/Jppyk4-hLRaF8vSzOOlw6A/edit?utm_content=DAG661GQQ8o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-esg-green text-white rounded-lg font-semibold hover:bg-esg-green/90 transition-all duration-300 shadow-lg shadow-esg-green/30 hover:shadow-xl hover:shadow-esg-green/40 hover:-translate-y-1 active:translate-y-0">
-                  <Download className="w-5 h-5" />
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-esg-green text-white rounded-lg font-semibold hover:bg-esg-green/90 transition-all duration-300 shadow-lg shadow-esg-green/30 hover:shadow-xl hover:shadow-esg-green/40 hover:-translate-y-1 active:translate-y-0 text-sm sm:text-base">
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>{t.hero.cta}</span>
                 </motion.a>
                 <motion.a
@@ -134,8 +136,8 @@ export default function Portfolio() {
                   href="/esg-learning"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-esg-blue text-white rounded-lg font-semibold hover:bg-esg-blue/90 transition-all duration-300 shadow-lg shadow-esg-blue/30 hover:shadow-xl hover:shadow-esg-blue/40 hover:-translate-y-1 active:translate-y-0">
-                  <BookOpen className="w-5 h-5" />
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-esg-blue text-white rounded-lg font-semibold hover:bg-esg-blue/90 transition-all duration-300 shadow-lg shadow-esg-blue/30 hover:shadow-xl hover:shadow-esg-blue/40 hover:-translate-y-1 active:translate-y-0 text-sm sm:text-base">
+                  <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Cùng tôi tìm hiểu về ESG</span>
                 </motion.a>
               </div>
@@ -145,8 +147,8 @@ export default function Portfolio() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex justify-center md:justify-end">
-              <div className="relative w-full max-w-md">
+              className="flex justify-center md:justify-end mt-8 md:mt-0">
+              <div className="relative w-full max-w-sm sm:max-w-md">
                 <div className="absolute inset-0 bg-gradient-to-br from-esg-green/20 to-esg-blue/20 rounded-3xl transform rotate-3 blur-xl"></div>
                 <div className="absolute inset-0 bg-esg-green/10 rounded-3xl transform -rotate-2"></div>
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 backdrop-blur-sm">
@@ -166,16 +168,16 @@ export default function Portfolio() {
 
       {/* About Section */}
       <Section id="about" className="bg-white">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <SectionTitle className="text-center">{t.about.title}</SectionTitle>
         </div>
-        <div className="grid md:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6">
+            className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed space-y-4 sm:space-y-6">
             <p className="font-light">{t.about.summary}</p>
           </motion.div>
           <motion.div
@@ -183,40 +185,40 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-gray-50 to-white p-10 rounded-3xl border-2 border-gray-100 relative overflow-hidden group hover:shadow-2xl hover:border-esg-green/30 transition-all duration-300">
-            <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-              <Leaf className="w-40 h-40 text-esg-green" />
+            className="bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border-2 border-gray-100 relative overflow-hidden group hover:shadow-2xl hover:border-esg-green/30 transition-all duration-300">
+            <div className="absolute top-0 right-0 p-4 sm:p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+              <Leaf className="w-32 h-32 sm:w-40 sm:h-40 text-esg-green" />
             </div>
-            <div className="relative z-10 grid grid-cols-2 gap-6">
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
-                <div className="w-14 h-14 bg-esg-green/10 rounded-xl flex items-center justify-center mb-3">
-                  <ShieldCheck className="w-7 h-7 text-esg-green" />
+            <div className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-esg-green/10 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                  <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-esg-green" />
                 </div>
-                <span className="text-sm font-semibold text-center text-gray-800">
+                <span className="text-xs sm:text-sm font-semibold text-center text-gray-800">
                   Compliance
                 </span>
               </div>
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
-                <div className="w-14 h-14 bg-esg-blue/10 rounded-xl flex items-center justify-center mb-3">
-                  <Globe2 className="w-7 h-7 text-esg-blue" />
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-esg-blue/10 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                  <Globe2 className="w-6 h-6 sm:w-7 sm:h-7 text-esg-blue" />
                 </div>
-                <span className="text-sm font-semibold text-center text-gray-800">
+                <span className="text-xs sm:text-sm font-semibold text-center text-gray-800">
                   Sustainability
                 </span>
               </div>
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
-                <div className="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center mb-3">
-                  <FileText className="w-7 h-7 text-orange-500" />
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-50 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                  <FileText className="w-6 h-6 sm:w-7 sm:h-7 text-orange-500" />
                 </div>
-                <span className="text-sm font-semibold text-center text-gray-800">
+                <span className="text-xs sm:text-sm font-semibold text-center text-gray-800">
                   Documentation
                 </span>
               </div>
-              <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
-                <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-3">
-                  <Users className="w-7 h-7 text-purple-500" />
+              <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                  <Users className="w-6 h-6 sm:w-7 sm:h-7 text-purple-500" />
                 </div>
-                <span className="text-sm font-semibold text-center text-gray-800">
+                <span className="text-xs sm:text-sm font-semibold text-center text-gray-800">
                   Collaboration
                 </span>
               </div>
@@ -229,34 +231,34 @@ export default function Portfolio() {
       <Section
         id="skills"
         className="bg-gradient-to-b from-gray-50/50 to-white">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <SectionTitle className="text-center">{t.skills.title}</SectionTitle>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {/* ESG Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-10 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-esg-green/40 hover:shadow-2xl transition-all duration-300 group">
-            <div className="w-16 h-16 bg-gradient-to-br from-esg-green/20 to-esg-green/10 rounded-2xl flex items-center justify-center mb-6 text-esg-green group-hover:scale-110 transition-transform duration-300">
-              <ShieldCheck className="w-8 h-8" />
+            className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-esg-green/40 hover:shadow-2xl transition-all duration-300 group">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-esg-green/20 to-esg-green/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 text-esg-green group-hover:scale-110 transition-transform duration-300">
+              <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
             <h3
-              className="text-2xl font-bold text-gray-900 mb-6"
+              className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{
                 textShadow:
                   "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
               }}>
               {t.skills.categories.esg.title}
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {t.skills.categories.esg.items.map((skill, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-gray-700 text-base">
-                  <CheckCircle2 className="w-5 h-5 text-esg-green shrink-0 mt-0.5" />
+                  className="flex items-start gap-2 sm:gap-3 text-gray-700 text-sm sm:text-base">
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-esg-green shrink-0 mt-0.5" />
                   <span className="font-medium">{skill}</span>
                 </li>
               ))}
@@ -269,24 +271,24 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white p-10 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-esg-blue/40 hover:shadow-2xl transition-all duration-300 group">
-            <div className="w-16 h-16 bg-gradient-to-br from-esg-blue/20 to-esg-blue/10 rounded-2xl flex items-center justify-center mb-6 text-esg-blue group-hover:scale-110 transition-transform duration-300">
-              <BarChart3 className="w-8 h-8" />
+            className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-esg-blue/40 hover:shadow-2xl transition-all duration-300 group">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-esg-blue/20 to-esg-blue/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 text-esg-blue group-hover:scale-110 transition-transform duration-300">
+              <BarChart3 className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
             <h3
-              className="text-2xl font-bold text-gray-900 mb-6"
+              className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{
                 textShadow:
                   "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
               }}>
               {t.skills.categories.project.title}
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {t.skills.categories.project.items.map((skill, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-gray-700 text-base">
-                  <CheckCircle2 className="w-5 h-5 text-esg-blue shrink-0 mt-0.5" />
+                  className="flex items-start gap-2 sm:gap-3 text-gray-700 text-sm sm:text-base">
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-esg-blue shrink-0 mt-0.5" />
                   <span className="font-medium">{skill}</span>
                 </li>
               ))}
@@ -299,24 +301,24 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white p-10 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl transition-all duration-300 group">
-            <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform duration-300">
-              <Search className="w-8 h-8" />
+            className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl transition-all duration-300 group">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 text-orange-500 group-hover:scale-110 transition-transform duration-300">
+              <Search className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
             <h3
-              className="text-2xl font-bold text-gray-900 mb-6"
+              className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{
                 textShadow:
                   "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
               }}>
               {t.skills.categories.research.title}
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {t.skills.categories.research.items.map((skill, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-gray-700 text-base">
-                  <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+                  className="flex items-start gap-2 sm:gap-3 text-gray-700 text-sm sm:text-base">
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 shrink-0 mt-0.5" />
                   <span className="font-medium">{skill}</span>
                 </li>
               ))}
@@ -329,13 +331,13 @@ export default function Portfolio() {
       <Section
         id="experience"
         className="bg-gradient-to-b from-white to-gray-50/30">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <SectionTitle className="text-center">
             {t.experience.title}
           </SectionTitle>
         </div>
         <div className="max-w-6xl mx-auto">
-          <div className="space-y-16 relative before:absolute before:left-0 md:before:left-1/2 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-esg-green/30 before:via-esg-blue/30 before:to-esg-green/30 before:-ml-0.5">
+          <div className="space-y-8 sm:space-y-12 md:space-y-16 relative before:absolute before:left-0 md:before:left-1/2 before:top-0 before:bottom-0 before:w-0.5 sm:before:w-1 before:bg-gradient-to-b before:from-esg-green/30 before:via-esg-blue/30 before:to-esg-green/30 before:-ml-0.5">
             {t.experience.jobs.map((job, index) => (
               <motion.div
                 key={index}
@@ -345,42 +347,42 @@ export default function Portfolio() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="relative flex flex-col md:flex-row items-start group">
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 w-6 h-6 bg-white border-4 border-esg-green rounded-full transform -translate-x-2.5 md:-translate-x-3 mt-1 z-10 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
+                <div className="absolute left-0 md:left-1/2 w-5 h-5 sm:w-6 sm:h-6 bg-white border-3 sm:border-4 border-esg-green rounded-full transform -translate-x-2 sm:-translate-x-2.5 md:-translate-x-3 mt-1 z-10 shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
 
                 {/* Content */}
                 <div
                   className={cn(
-                    "w-full md:w-1/2 pl-12 md:pl-0 md:pr-16",
+                    "w-full md:w-1/2 pl-8 sm:pl-12 md:pl-0 md:pr-16",
                     index % 2 !== 0
                       ? "md:ml-auto md:pl-16 md:pr-0"
                       : "text-left md:text-right"
                   )}>
-                  <div className="bg-white p-8 rounded-3xl border-2 border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:border-esg-green/40 group-hover:-translate-y-1">
-                    <span className="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-wider text-esg-blue bg-gradient-to-r from-esg-blue/10 to-esg-blue/5 rounded-full border border-esg-blue/20">
+                  <div className="bg-white p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border-2 border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:border-esg-green/40 group-hover:-translate-y-1">
+                    <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 text-xs font-bold tracking-wider text-esg-blue bg-gradient-to-r from-esg-blue/10 to-esg-blue/5 rounded-full border border-esg-blue/20">
                       {job.period}
                     </span>
                     <h3
-                      className="text-xl md:text-2xl font-bold text-gray-900 mb-3"
+                      className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2 sm:mb-3"
                       style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.1)" }}>
                       {job.role}
                     </h3>
                     <div
                       className={cn(
-                        "flex items-center gap-2 text-gray-600 mb-6 text-base font-semibold",
+                        "flex items-center gap-2 text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base font-semibold",
                         index % 2 !== 0 ? "" : "md:justify-end"
                       )}>
-                      <Building2 className="w-5 h-5 text-esg-green" />
+                      <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-esg-green" />
                       <span>{job.company}</span>
                     </div>
-                    <ul className="space-y-2.5 text-gray-700 text-base leading-relaxed">
+                    <ul className="space-y-2 sm:space-y-2.5 text-gray-700 text-sm sm:text-base leading-relaxed">
                       {job.description.map((desc, i) => (
                         <li
                           key={i}
                           className={cn(
-                            "flex items-start gap-3",
+                            "flex items-start gap-2 sm:gap-3",
                             index % 2 === 0 ? "md:flex-row-reverse" : ""
                           )}>
-                          <span className="w-1.5 h-1.5 rounded-full bg-esg-green mt-2.5 shrink-0 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-esg-green mt-2 sm:mt-2.5 shrink-0 flex-shrink-0"></span>
                           <span className="flex-1">{desc}</span>
                         </li>
                       ))}
@@ -395,12 +397,12 @@ export default function Portfolio() {
 
       {/* Core Values Section */}
       <Section id="coreValues" className="bg-white">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <SectionTitle className="text-center">
             {t.coreValues.title}
           </SectionTitle>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {t.coreValues.items.map((value, index) => (
             <motion.div
               key={index}
@@ -408,19 +410,19 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-white to-gray-50 p-10 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-esg-green/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group">
-              <div className="w-16 h-16 bg-gradient-to-br from-esg-green/20 to-esg-green/10 rounded-2xl flex items-center justify-center mb-6 text-esg-green group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <Briefcase className="w-8 h-8" />
+              className="bg-gradient-to-br from-white to-gray-50 p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-esg-green/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-esg-green/20 to-esg-green/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 text-esg-green group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <Briefcase className="w-7 h-7 sm:w-8 sm:h-8" />
               </div>
               <h3
-                className="text-2xl font-bold text-gray-900 mb-5"
+                className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-5"
                 style={{
                   textShadow:
                     "0 1px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
                 }}>
                 {value.title}
               </h3>
-              <p className="text-gray-700 leading-relaxed flex-grow text-base">
+              <p className="text-gray-700 leading-relaxed flex-grow text-sm sm:text-base">
                 {value.description}
               </p>
             </motion.div>
@@ -432,15 +434,17 @@ export default function Portfolio() {
       <Section
         id="education"
         className="bg-gradient-to-b from-white to-gray-50/30">
-        <div className="grid md:grid-cols-2 gap-20 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-20 max-w-7xl mx-auto">
           {/* Education */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}>
-            <SectionTitle className="mb-12">{t.education.title}</SectionTitle>
-            <div className="space-y-8">
+            <SectionTitle className="mb-8 sm:mb-10 md:mb-12">
+              {t.education.title}
+            </SectionTitle>
+            <div className="space-y-6 sm:space-y-8">
               {t.education.items.map((edu, index) => (
                 <motion.div
                   key={index}
@@ -448,27 +452,28 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex gap-6 items-start p-6 rounded-2xl hover:bg-white/50 transition-colors duration-300 group">
-                  <div className="w-16 h-16 bg-gradient-to-br from-esg-blue/20 to-esg-blue/10 rounded-2xl flex items-center justify-center shrink-0 text-esg-blue group-hover:scale-110 transition-transform duration-300">
-                    <GraduationCap className="w-8 h-8" />
+                  className="flex gap-4 sm:gap-6 items-start p-4 sm:p-6 rounded-xl sm:rounded-2xl hover:bg-white/50 transition-colors duration-300 group">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-esg-blue/20 to-esg-blue/10 rounded-2xl flex items-center justify-center shrink-0 text-esg-blue group-hover:scale-110 transition-transform duration-300">
+                    <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
                       {edu.degree}
                     </h3>
-                    <p className="text-gray-700 font-medium mb-3">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium mb-2 sm:mb-3">
                       {edu.school}
                     </p>
-                    <div className="flex gap-4 mt-3 text-sm">
-                      <span className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full text-gray-700 font-medium">
-                        <Calendar className="w-4 h-4" /> {edu.year}
+                    <div className="flex flex-wrap gap-2 sm:gap-4 mt-2 sm:mt-3 text-xs sm:text-sm">
+                      <span className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-gray-100 rounded-full text-gray-700 font-medium">
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />{" "}
+                        {edu.year}
                       </span>
-                      <span className="px-3 py-1 bg-esg-green/10 text-esg-green rounded-full font-bold">
+                      <span className="px-2 sm:px-3 py-1 bg-esg-green/10 text-esg-green rounded-full font-bold">
                         {edu.gpa}
                       </span>
                     </div>
                     {edu.achievement && (
-                      <p className="mt-4 text-m text-gray-600 italic leading-relaxed border-l-2 border-esg-green/30 pl-4">
+                      <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 italic leading-relaxed border-l-2 border-esg-green/30 pl-3 sm:pl-4">
                         {edu.achievement}
                       </p>
                     )}
@@ -485,8 +490,10 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}>
-            <SectionTitle className="mb-12">{t.languages.title}</SectionTitle>
-            <div className="space-y-10">
+            <SectionTitle className="mb-8 sm:mb-10 md:mb-12">
+              {t.languages.title}
+            </SectionTitle>
+            <div className="space-y-6 sm:space-y-8 md:space-y-10">
               {t.languages.items.map((lang, index) => (
                 <motion.div
                   key={index}
@@ -494,16 +501,16 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 rounded-2xl bg-white/50 hover:bg-white transition-colors duration-300">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-lg font-bold text-gray-900">
+                  className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/50 hover:bg-white transition-colors duration-300">
+                  <div className="flex justify-between items-center mb-3 sm:mb-4">
+                    <span className="text-base sm:text-lg font-bold text-gray-900">
                       {lang.name}
                     </span>
-                    <span className="text-sm font-semibold text-esg-green bg-esg-green/10 px-3 py-1 rounded-full">
+                    <span className="text-xs sm:text-sm font-semibold text-esg-green bg-esg-green/10 px-2 sm:px-3 py-1 rounded-full">
                       {lang.level}
                     </span>
                   </div>
-                  <div className="h-4 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${lang.percent}%` }}
@@ -515,7 +522,7 @@ export default function Portfolio() {
                       }}
                       className="h-full bg-gradient-to-r from-esg-green to-esg-blue rounded-full shadow-lg"></motion.div>
                   </div>
-                  <div className="mt-2 text-right text-xs font-medium text-gray-500">
+                  <div className="mt-1.5 sm:mt-2 text-right text-xs font-medium text-gray-500">
                     {lang.percent}%
                   </div>
                 </motion.div>
@@ -528,12 +535,12 @@ export default function Portfolio() {
       {/* Certificates Section */}
       {t.certificates && t.certificates.items.length > 0 && (
         <Section id="certificates" className="bg-white">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <SectionTitle className="text-center">
               {t.certificates.title}
             </SectionTitle>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {t.certificates.items.map((cert, index) => (
               <motion.div
                 key={index}
@@ -541,8 +548,8 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-4 rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col gap-4 group">
-                <div className="relative w-full overflow-hidden rounded-2xl border border-gray-100 shadow-inner bg-gray-50 aspect-[4/3]">
+                className="bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col gap-3 sm:gap-4 group">
+                <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl border border-gray-100 shadow-inner bg-gray-50 aspect-[4/3]">
                   {cert.file ? (
                     <LazyPDFPreview
                       file={cert.file}
@@ -550,30 +557,30 @@ export default function Portfolio() {
                       alt={`${cert.name} preview`}
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">
+                    <div className="w-full h-full flex items-center justify-center text-xs sm:text-sm text-gray-500">
                       No preview
                     </div>
                   )}
-                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
                   {cert.url && (
                     <a
                       href={cert.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 text-esg-green text-xs font-bold rounded-full shadow-lg border border-esg-green/30 backdrop-blur-sm hover:bg-esg-green hover:text-white transition-colors">
+                      className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 px-2 sm:px-3 py-1 sm:py-1.5 bg-white/90 text-esg-green text-xs font-bold rounded-full shadow-lg border border-esg-green/30 backdrop-blur-sm hover:bg-esg-green hover:text-white transition-colors">
                       {language === "vi" ? "Xem chứng chỉ" : "View"}
                     </a>
                   )}
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center text-orange-500 shrink-0 shadow-sm">
-                    <Award className="w-5 h-5" />
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center text-orange-500 shrink-0 shadow-sm">
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 leading-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight">
                       {cert.name}
                     </h3>
-                    <p className="text-sm font-semibold text-gray-600">
+                    <p className="text-xs sm:text-sm font-semibold text-gray-600">
                       {cert.issuer}
                     </p>
                     {cert.date && (
@@ -590,24 +597,24 @@ export default function Portfolio() {
       {/* Contact Section */}
       <Section
         id="contact"
-        className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white mb-0 pb-20">
+        className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white mb-0 pb-12 sm:pb-16 md:pb-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 tracking-tight">
               {t.contact.title}
             </h2>
-            <p className="text-gray-300 mb-16 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-300 mb-8 sm:mb-12 md:mb-16 text-base sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed px-4">
               {language === "en"
                 ? "Connect with me so we can build sustainable value together!"
                 : "Hãy kết nối với tôi để có thể cùng nhau xây dựng giá trị bền vững!"}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             <motion.a
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -616,12 +623,12 @@ export default function Portfolio() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=vincentnguyentnt@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-4 p-8 rounded-3xl bg-white/5 hover:bg-white/10 transition-all duration-300 border-2 border-white/10 hover:border-esg-green/50 hover:shadow-2xl hover:shadow-esg-green/20 hover:-translate-y-2 group">
-              <div className="w-16 h-16 bg-esg-green/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <Mail className="w-8 h-8 text-esg-green" />
+              className="flex flex-col items-center gap-3 sm:gap-4 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/5 hover:bg-white/10 transition-all duration-300 border-2 border-white/10 hover:border-esg-green/50 hover:shadow-2xl hover:shadow-esg-green/20 hover:-translate-y-2 group">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-esg-green/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-esg-green" />
               </div>
-              <span className="text-base font-semibold">Email</span>
-              <span className="text-sm text-gray-400 break-all">
+              <span className="text-sm sm:text-base font-semibold">Email</span>
+              <span className="text-xs sm:text-sm text-gray-400 break-all px-2">
                 vincentnguyentnt@gmail.com
               </span>
             </motion.a>
@@ -632,12 +639,14 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.2 }}
               href="tel:+84387542402"
               onClick={handlePhoneClick}
-              className="flex flex-col items-center gap-4 p-8 rounded-3xl bg-white/5 hover:bg-white/10 transition-all duration-300 border-2 border-white/10 hover:border-esg-blue/50 hover:shadow-2xl hover:shadow-esg-blue/20 hover:-translate-y-2 group">
-              <div className="w-16 h-16 bg-esg-blue/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <Phone className="w-8 h-8 text-esg-blue" />
+              className="flex flex-col items-center gap-3 sm:gap-4 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/5 hover:bg-white/10 transition-all duration-300 border-2 border-white/10 hover:border-esg-blue/50 hover:shadow-2xl hover:shadow-esg-blue/20 hover:-translate-y-2 group">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-esg-blue/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-esg-blue" />
               </div>
-              <span className="text-base font-semibold">Phone</span>
-              <span className="text-sm text-gray-400">+84 387 542 402</span>
+              <span className="text-sm sm:text-base font-semibold">Phone</span>
+              <span className="text-xs sm:text-sm text-gray-400">
+                +84 387 542 402
+              </span>
             </motion.a>
             <motion.a
               initial={{ opacity: 0, y: 20 }}
@@ -647,12 +656,14 @@ export default function Portfolio() {
               href="https://www.linkedin.com/in/vinh-nguyen-viet-276490393/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-4 p-8 rounded-3xl bg-white/5 hover:bg-white/10 transition-all duration-300 border-2 border-white/10 hover:border-[#0077b5]/50 hover:shadow-2xl hover:shadow-[#0077b5]/20 hover:-translate-y-2 group">
-              <div className="w-16 h-16 bg-[#0077b5]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <Linkedin className="w-8 h-8 text-[#0077b5]" />
+              className="flex flex-col items-center gap-3 sm:gap-4 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/5 hover:bg-white/10 transition-all duration-300 border-2 border-white/10 hover:border-[#0077b5]/50 hover:shadow-2xl hover:shadow-[#0077b5]/20 hover:-translate-y-2 group sm:col-span-2 md:col-span-1">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0077b5]/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <Linkedin className="w-7 h-7 sm:w-8 sm:h-8 text-[#0077b5]" />
               </div>
-              <span className="text-base font-semibold">LinkedIn</span>
-              <span className="text-sm text-gray-400 break-all">
+              <span className="text-sm sm:text-base font-semibold">
+                LinkedIn
+              </span>
+              <span className="text-xs sm:text-sm text-gray-400 break-all px-2">
                 vinh-nguyen-viet
               </span>
             </motion.a>
