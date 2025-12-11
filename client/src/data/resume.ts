@@ -227,18 +227,6 @@ export const content = {
           file: "/certificates/Vietnamica_Certificate.pdf",
         },
         {
-          name: "Bachelor's Degree in Sino–Nom Studies",
-          issuer: "University of Social Sciences and Humanities, VNU Hanoi",
-          file: "/certificates/NVV_Bằng Đại học.pdf",
-          protected: true,
-        },
-        {
-          name: "Master's Degree in Sino–Nom Studies",
-          issuer: "University of Social Sciences and Humanities, VNU Hanoi",
-          file: "/certificates/NVV_Bằng ThS.pdf",
-          protected: true,
-        },
-        {
           name: "TOCFL Certificate",
           issuer: "TOCFL",
           file: "/certificates/NVV_Chứng chỉ TOCFL.pdf",
@@ -493,18 +481,6 @@ export const content = {
           name: "Chứng nhận tham gia Dự án Vietnamica",
           issuer: "Dự án VIETNAMICA",
           file: "/certificates/Vietnamica_Certificate.pdf",
-        },
-        {
-          name: "Bằng Cử nhân Hán Nôm",
-          issuer: "Trường ĐH KHXH&NV, ĐHQGHN",
-          file: "/certificates/NVV_Bằng Đại học.pdf",
-          protected: true,
-        },
-        {
-          name: "Bằng Thạc sĩ Hán Nôm",
-          issuer: "Trường ĐH KHXH&NV, ĐHQGHN",
-          file: "/certificates/NVV_Bằng ThS.pdf",
-          protected: true,
         },
         {
           name: "Chứng chỉ TOCFL",
