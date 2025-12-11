@@ -221,6 +221,11 @@ export const content = {
           url: "https://www.coursera.org/account/accomplishments/verify/KXO5D0OOI4F3",
           file: "/certificates/University of London_Machine Learning for All_Coursera KXO5D0OOI4F3.pdf",
         },
+        {
+          name: "Vietnamica Certificate",
+          issuer: "VIETNAMICA Project",
+          file: "/certificates/Vietnamica_Certificate.pdf",
+        },
       ] as Array<{
         name: string;
         issuer: string;
@@ -460,6 +465,11 @@ export const content = {
           issuer: "Coursera",
           url: "https://www.coursera.org/account/accomplishments/verify/KXO5D0OOI4F3",
           file: "/certificates/University of London_Machine Learning for All_Coursera KXO5D0OOI4F3.pdf",
+        },
+        {
+          name: "Chứng nhận tham gia Dự án Vietnamica",
+          issuer: "Dự án VIETNAMICA",
+          file: "/certificates/Vietnamica_Certificate.pdf",
         },
       ] as Array<{
         name: string;
