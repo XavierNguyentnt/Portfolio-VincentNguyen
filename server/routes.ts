@@ -18,7 +18,12 @@ export async function registerRoutes(
   // API endpoint to get list of ESG learning topics and their documents
   app.get("/api/esg-learning/topics", async (_req, res) => {
     try {
-      const assetsPath = path.resolve(import.meta.dirname, "..", "attached_assets", "ESGLearning");
+      const assetsPath = path.resolve(
+        import.meta.dirname,
+        "..",
+        "attached_assets",
+        "ESGLearning"
+      );
       const topics: Array<{
         id: number;
         folderName: string;
@@ -34,8 +39,9 @@ export async function registerRoutes(
         return res.json({ topics: [] });
       }
 
-      const folders = fs.readdirSync(assetsPath, { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory())
+      const folders = fs
+        .readdirSync(assetsPath, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
         .sort((a, b) => {
           // Sort by number prefix if exists
           const numA = parseInt(a.name.match(/^\d+/)?.[0] || "0");
@@ -45,11 +51,12 @@ export async function registerRoutes(
 
       for (const folder of folders) {
         const folderPath = path.join(assetsPath, folder.name);
-        const files = fs.readdirSync(folderPath)
-          .filter(file => file.endsWith(".docx"))
+        const files = fs
+          .readdirSync(folderPath)
+          .filter((file) => file.endsWith(".docx"))
           .sort();
 
-        const documents = files.map(file => ({
+        const documents = files.map((file) => ({
           fileName: file,
           title: file.replace(".docx", "").replace(/^\d+\.\s*/, ""),
         }));
@@ -57,17 +64,23 @@ export async function registerRoutes(
         if (documents.length > 0) {
           const match = folder.name.match(/^\d+\.\s*(.+)/);
           const baseTitle = match ? match[1] : folder.name;
-          
+
           // Map English titles to Vietnamese
           const titleMap: Record<string, string> = {
-            "ESG Essentials for Sustainable Business": "Kiến thức cơ bản về ESG cho Doanh nghiệp Bền vững",
-            "ESG Communication for Inclusive Dialogue": "Giao tiếp ESG cho Đối thoại Hòa nhập",
-            "ESG Value Creation for Business Impact": "Tạo giá trị ESG cho Tác động Kinh doanh",
-            "ESG Challenges and Solutions for Business": "Thách thức và Giải pháp ESG cho Doanh nghiệp",
-            "ESG Mindsets for Business Transformation": "Tư duy ESG cho Chuyển đổi Kinh doanh",
-            "How to Prioritize ESG Initiatives": "Cách Ưu tiên các Sáng kiến ESG",
+            "ESG Essentials for Sustainable Business":
+              "Kiến thức cơ bản về ESG cho Doanh nghiệp Bền vững",
+            "ESG Communication for Inclusive Dialogue":
+              "Giao tiếp ESG cho Đối thoại Hòa nhập",
+            "ESG Value Creation for Business Impact":
+              "Tạo giá trị ESG cho Tác động Kinh doanh",
+            "ESG Challenges and Solutions for Business":
+              "Thách thức và Giải pháp ESG cho Doanh nghiệp",
+            "ESG Mindsets for Business Transformation":
+              "Tư duy ESG cho Chuyển đổi Kinh doanh",
+            "How to Prioritize ESG Initiatives":
+              "Cách Ưu tiên các Sáng kiến ESG",
           };
-          
+
           topics.push({
             id: topics.length + 1,
             folderName: folder.name,
@@ -91,7 +104,9 @@ export async function registerRoutes(
       const { topic, document } = req.query;
 
       if (!topic || !document) {
-        return res.status(400).json({ error: "Topic and document parameters are required" });
+        return res
+          .status(400)
+          .json({ error: "Topic and document parameters are required" });
       }
 
       const docxPath = path.resolve(
@@ -111,13 +126,75 @@ export async function registerRoutes(
       const result = await mammoth.convertToHtml({ buffer });
       const html = result.value;
 
-      res.json({ 
+      res.json({
         html,
-        messages: result.messages 
+        messages: result.messages,
       });
     } catch (error) {
       console.error("Error reading document:", error);
       res.status(500).json({ error: "Failed to read document" });
+    }
+  });
+
+  // API endpoint to serve protected PDF files (prevents direct access from Sources)
+  app.get("/api/protected-pdf", async (req, res) => {
+    try {
+      const { file } = req.query;
+
+      if (!file || typeof file !== "string") {
+        return res.status(400).json({ error: "File parameter is required" });
+      }
+
+      // Decode the file name (it comes URL encoded)
+      const decodedFileName = decodeURIComponent(file);
+      console.log(`[Protected PDF] Requested file: ${decodedFileName}`);
+
+      // List of protected files
+      const protectedFiles = ["NVV_Bằng Đại học.pdf", "NVV_Bằng ThS.pdf"];
+
+      // Only serve if file is in protected list
+      if (!protectedFiles.includes(decodedFileName)) {
+        console.log(`[Protected PDF] Access denied for: ${decodedFileName}`);
+        return res.status(403).json({ error: "Access denied" });
+      }
+
+      const pdfPath = path.resolve(
+        import.meta.dirname,
+        "..",
+        "client",
+        "public",
+        "certificates",
+        decodedFileName
+      );
+
+      console.log(`[Protected PDF] Looking for file at: ${pdfPath}`);
+
+      if (!fs.existsSync(pdfPath)) {
+        console.error(`[Protected PDF] File not found at: ${pdfPath}`);
+        return res.status(404).json({ error: "File not found" });
+      }
+
+      console.log(`[Protected PDF] Serving file: ${decodedFileName}`);
+
+      // Set headers to prevent download and caching, and allow PDF viewing
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", 'inline; filename="protected.pdf"');
+      res.setHeader("X-Content-Type-Options", "nosniff");
+      res.setHeader(
+        "Cache-Control",
+        "no-store, no-cache, must-revalidate, private"
+      );
+      res.setHeader("Pragma", "no-cache");
+      res.setHeader("Expires", "0");
+      res.setHeader("Permissions-Policy", "unload=*, fullscreen=*, autoplay=*");
+      res.setHeader("X-Frame-Options", "SAMEORIGIN");
+
+      // Stream the file
+      const fileStream = fs.createReadStream(pdfPath);
+      fileStream.pipe(res);
+    } catch (error) {
+      console.error("Error serving protected PDF:", error);
+      res.status(500).json({ error: "Failed to serve PDF" });
     }
   });
 

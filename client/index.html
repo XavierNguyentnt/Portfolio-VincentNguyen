@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-    <meta property="og:title" content="Nguyen Viet Vinh - ESG & CSR Portfolio" />
-    <meta property="og:description" content="Portfolio of Nguyen Viet Vinh - ESG Officer & CSR Compliance Specialist" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/opengraph.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nguyen Viet Vinh - ESG & CSR Portfolio" />
-    <meta name="twitter:description" content="Portfolio of Nguyen Viet Vinh - ESG Officer & CSR Compliance Specialist" />
-    <meta name="twitter:image" content="/opengraph.jpg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta http-equiv="Permissions-Policy" content="unload=*, fullscreen=*, autoplay=*" />
+  <style id="protected-print-block">
+    @media print {
+      body[data-protected-view="true"] * {
+        visibility: hidden !important;
+      }
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      body[data-protected-view="true"]::before {
+        content: "Printing is disabled for protected documents";
+        visibility: visible !important;
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: red;
+        z-index: 99999;
+      }
+    }
+  </style>
+
+  <meta property="og:title" content="Nguyen Viet Vinh - ESG & CSR Portfolio" />
+  <meta property="og:description" content="Portfolio of Nguyen Viet Vinh - ESG Officer & CSR Compliance Specialist" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/opengraph.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nguyen Viet Vinh - ESG & CSR Portfolio" />
+  <meta name="twitter:description" content="Portfolio of Nguyen Viet Vinh - ESG Officer & CSR Compliance Specialist" />
+  <meta name="twitter:image" content="/opengraph.jpg" />
+
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

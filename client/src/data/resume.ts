@@ -177,7 +177,7 @@ export const content = {
       ],
     },
     certificates: {
-      title: "Certifications",
+      title: "Degrees and Certificates",
       items: [
         {
           name: "ESG for All",
@@ -226,12 +226,35 @@ export const content = {
           issuer: "VIETNAMICA Project",
           file: "/certificates/Vietnamica_Certificate.pdf",
         },
+        {
+          name: "Bachelor's Degree in Sino–Nom Studies",
+          issuer: "University of Social Sciences and Humanities, VNU Hanoi",
+          file: "/certificates/NVV_Bằng Đại học.pdf",
+          protected: true,
+        },
+        {
+          name: "Master's Degree in Sino–Nom Studies",
+          issuer: "University of Social Sciences and Humanities, VNU Hanoi",
+          file: "/certificates/NVV_Bằng ThS.pdf",
+          protected: true,
+        },
+        {
+          name: "TOCFL Certificate",
+          issuer: "TOCFL",
+          file: "/certificates/NVV_Chứng chỉ TOCFL.pdf",
+        },
+        {
+          name: "VSTEP Certificate - Chinese Language",
+          issuer: "VSTEP",
+          file: "/certificates/VSTEP_CC_Ngoại ngữ_Tiếng Trung.pdf",
+        },
       ] as Array<{
         name: string;
         issuer: string;
         date?: string;
         url?: string;
         file?: string;
+        protected?: boolean;
       }>,
     },
     contact: {
@@ -422,7 +445,7 @@ export const content = {
       ],
     },
     certificates: {
-      title: "Chứng chỉ",
+      title: "Văn bằng và chứng chỉ",
       items: [
         {
           name: "ESG for All",
@@ -471,12 +494,35 @@ export const content = {
           issuer: "Dự án VIETNAMICA",
           file: "/certificates/Vietnamica_Certificate.pdf",
         },
+        {
+          name: "Bằng Cử nhân Hán Nôm",
+          issuer: "Trường ĐH KHXH&NV, ĐHQGHN",
+          file: "/certificates/NVV_Bằng Đại học.pdf",
+          protected: true,
+        },
+        {
+          name: "Bằng Thạc sĩ Hán Nôm",
+          issuer: "Trường ĐH KHXH&NV, ĐHQGHN",
+          file: "/certificates/NVV_Bằng ThS.pdf",
+          protected: true,
+        },
+        {
+          name: "Chứng chỉ TOCFL",
+          issuer: "TOCFL",
+          file: "/certificates/NVV_Chứng chỉ TOCFL.pdf",
+        },
+        {
+          name: "Chứng chỉ VSTEP - Tiếng Trung",
+          issuer: "VSTEP",
+          file: "/certificates/VSTEP_CC_Ngoại ngữ_Tiếng Trung.pdf",
+        },
       ] as Array<{
         name: string;
         issuer: string;
         date?: string;
         url?: string;
         file?: string;
+        protected?: boolean;
       }>,
     },
     contact: {

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { Section, SectionTitle } from "@/components/Section";
 import { LazyBackgroundImage } from "@/components/LazyBackgroundImage";
 import { LazyPDFPreview } from "@/components/LazyPDFPreview";
+import { ProtectedPDFPreview } from "@/components/ProtectedPDFPreview";
+import { CertificateModal } from "@/components/CertificateModal";
 import { cn } from "@/lib/utils";
 import {
   Download,
@@ -29,6 +31,127 @@ import { motion } from "framer-motion";
 
 export default function Portfolio() {
   const { t, language } = useLanguage();
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    name: string;
+    issuer: string;
+    file?: string;
+    protected?: boolean;
+    url?: string;
+    date?: string;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Global protection for protected certificates on main page
+  useEffect(() => {
+    const hasProtectedCertificates = t.certificates?.items.some(
+      (cert) => cert.protected
+    );
+
+    if (!hasProtectedCertificates) return;
+
+    const handleContextMenu = (e: MouseEvent) => {
+      // Check if clicking on a protected certificate card
+      const target = e.target as HTMLElement;
+      const certificateCard = target.closest(
+        '[data-protected-certificate="true"]'
+      );
+      if (certificateCard) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Check if focused on protected certificate
+      const target = e.target as HTMLElement;
+      const certificateCard = target.closest(
+        '[data-protected-certificate="true"]'
+      );
+      if (!certificateCard) return;
+
+      // Block Ctrl+P (Print)
+      if (e.ctrlKey && (e.key === "p" || e.key === "P")) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }
+
+      // Block Ctrl+S (Save)
+      if (e.ctrlKey && (e.key === "s" || e.key === "S")) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }
+
+      // Block Ctrl+Shift+S (Save As)
+      if (e.ctrlKey && e.shiftKey && (e.key === "s" || e.key === "S")) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }
+    };
+
+    const handleSelectStart = (e: Event) => {
+      const target = e.target as HTMLElement;
+      const certificateCard = target.closest(
+        '[data-protected-certificate="true"]'
+      );
+      if (certificateCard) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+
+    const handleCopy = (e: ClipboardEvent) => {
+      const target = e.target as HTMLElement;
+      const certificateCard = target.closest(
+        '[data-protected-certificate="true"]'
+      );
+      if (certificateCard) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+
+    document.addEventListener("contextmenu", handleContextMenu, {
+      capture: true,
+      passive: false,
+    });
+    document.addEventListener("keydown", handleKeyDown, {
+      capture: true,
+      passive: false,
+    });
+    document.addEventListener("selectstart", handleSelectStart, {
+      capture: true,
+      passive: false,
+    });
+    document.addEventListener("copy", handleCopy, {
+      capture: true,
+      passive: false,
+    });
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu, {
+        capture: true,
+      } as any);
+      document.removeEventListener("keydown", handleKeyDown, {
+        capture: true,
+      } as any);
+      document.removeEventListener("selectstart", handleSelectStart, {
+        capture: true,
+      } as any);
+      document.removeEventListener("copy", handleCopy, {
+        capture: true,
+      } as any);
+    };
+  }, [t.certificates]);
 
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const isMobile =
@@ -548,14 +671,37 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col gap-3 sm:gap-4 group">
-                <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl border border-gray-100 shadow-inner bg-gray-50 aspect-[4/3]">
+                data-protected-certificate={cert.protected ? "true" : "false"}
+                className={`bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg border-2 border-gray-100 hover:border-orange-500/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col gap-3 sm:gap-4 group cursor-pointer ${
+                  cert.protected ? "select-none" : ""
+                }`}
+                onContextMenu={(e) => {
+                  if (cert.protected) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                  }
+                }}
+                onClick={() => {
+                  console.log("Certificate clicked:", cert.name);
+                  setSelectedCertificate(cert);
+                  setIsModalOpen(true);
+                }}>
+                <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl border border-gray-100 shadow-inner bg-gray-50 aspect-[4/3] pointer-events-none">
                   {cert.file ? (
-                    <LazyPDFPreview
-                      file={cert.file}
-                      className="w-full h-full"
-                      alt={`${cert.name} preview`}
-                    />
+                    cert.protected ? (
+                      <ProtectedPDFPreview
+                        file={cert.file}
+                        className="w-full h-full"
+                        alt={`${cert.name} preview`}
+                      />
+                    ) : (
+                      <LazyPDFPreview
+                        file={cert.file}
+                        className="w-full h-full"
+                        alt={`${cert.name} preview`}
+                      />
+                    )
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-xs sm:text-sm text-gray-500">
                       No preview
@@ -567,7 +713,8 @@ export default function Portfolio() {
                       href={cert.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 px-2 sm:px-3 py-1 sm:py-1.5 bg-white/90 text-esg-green text-xs font-bold rounded-full shadow-lg border border-esg-green/30 backdrop-blur-sm hover:bg-esg-green hover:text-white transition-colors">
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 px-2 sm:px-3 py-1 sm:py-1.5 bg-white/90 text-esg-green text-xs font-bold rounded-full shadow-lg border border-esg-green/30 backdrop-blur-sm hover:bg-esg-green hover:text-white transition-colors z-10">
                       {language === "vi" ? "Xem chứng chỉ" : "View"}
                     </a>
                   )}
@@ -593,6 +740,16 @@ export default function Portfolio() {
           </div>
         </Section>
       )}
+
+      {/* Certificate Modal */}
+      <CertificateModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedCertificate(null);
+        }}
+        certificate={selectedCertificate}
+      />
 
       {/* Contact Section */}
       <Section
