@@ -16,14 +16,14 @@ export const content = {
       name: "Nguyen Viet Vinh",
       title: "ESG Officer | CSR Compliance Specialist | Project Coordinator",
       tagline:
-        "Committed to sustainable value creation through compliance, transparency, and responsible management.",
+        "I pursue the goal of becoming an ESG specialist who creates tangible value for organizations through compliance governance, risk control, data management, and system standardization. My working approach is grounded in three pillars: Discipline – Transparency – Systematic Thinking.Committed to sustainable value creation through compliance, transparency, and responsible management.",
       cta: "View and download my CV",
       esgLearningCta: "Learn about ESG with me",
     },
     about: {
       title: "About Me",
       summary:
-        "I am an ESG and Compliance professional with experience in internal auditing, CSR compliance, documentation, and project coordination. With analytical strengths and a research background, I support organizations in building systematic ESG practices, improving documentation quality, and strengthening sustainable development performance.",
+        "I am a Compliance professional with practical experience in internal auditing, CSR compliance management, documentation systems, and project coordination. Throughout my work, I have developed strong analytical thinking, structured information handling, and a process-oriented working approach—core qualities that allow me to navigate the requirements of modern governance frameworks.\n\nBeyond my background in CSR, I am actively building my foundation in ESG to better align with contemporary sustainability expectations. I have been studying international guidelines on environmental-social risk management, reporting frameworks, and impact assessment methodologies. My goal is to transition from traditional compliance toward a more integrated ESG capability that can support an organization's long-term sustainable development strategy.\n\nWith my grounding in risk control, documentation management, attention to detail, and disciplined learning mindset, I am confident in my ability to contribute as a reliable and system-oriented professional—well aligned with Phenikaa's commitment to Sustainable Development, Innovation, and Real Value Creation.",
     },
     skills: {
       title: "Skills",
@@ -273,13 +273,13 @@ export const content = {
       name: "Nguyễn Viết Vinh",
       title: "Chuyên viên ESG | Nhân viên Tuân thủ CSR | Điều phối Dự án",
       tagline:
-        "Cam kết tạo ra giá trị bền vững thông qua tuân thủ, minh bạch và quản trị có trách nhiệm.",
+        "Tôi theo đuổi mục tiêu trở thành chuyên viên ESG mang lại giá trị thực chất cho doanh nghiệp thông qua quản trị tuân thủ, kiểm soát rủi ro, quản lý dữ liệu và chuẩn hóa hệ thống. Phong cách làm việc của tôi dựa trên ba trụ cột: Kỷ luật – Minh bạch – Tư duy hệ thống.",
       cta: "Xem và tải về  CV  của tôi",
     },
     about: {
       title: "Giới thiệu",
       summary:
-        "Tôi là một chuyên viên ESG và Tuân thủ với kinh nghiệm đánh giá nội bộ, tuân thủ CSR, xây dựng tài liệu và điều phối dự án. Với nền tảng nghiên cứu và tư duy phân tích, tôi hỗ trợ tổ chức xây dựng hệ thống ESG bài bản, nâng cao chất lượng hồ sơ và tăng cường hiệu quả phát triển bền vững.",
+        'Tôi là một chuyên viên Tuân thủ với kinh nghiệm thực tế trong đánh giá nội bộ, quản lý tuân thủ CSR, xây dựng hệ thống tài liệu và điều phối dự án. Trong quá trình làm việc, tôi phát triển tư duy phân tích, khả năng tổ chức thông tin và phương pháp làm việc dựa trên quy trình - những yếu tố giúp tôi tiếp cận hiệu quả với các tiêu chuẩn quản trị hiện đại.\n\nBên cạnh kinh nghiệm về CSR, tôi đang chủ động mở rộng kiến thức về ESG nhằm tiếp cận toàn diện hơn các yêu cầu của phát triển bền vững. Tôi dành nhiều thời gian nghiên cứu các chuẩn mực quốc tế, bao gồm quản lý rủi ro môi trường - xã hội, xây dựng hệ thống báo cáo, và phương pháp đánh giá tác động. Mục tiêu của tôi là từng bước chuyển dịch từ tuân thủ truyền thống sang năng lực ESG chuyên sâu, có khả năng đồng hành cùng doanh nghiệp trong chiến lược tăng trưởng dài hạn.\n\nTôi tin rằng với nền tảng kiểm soát rủi ro, khả năng quản lý minh chứng, tác phong cẩn trọng và tinh thần học hỏi nghiêm túc, tôi có thể đóng góp cho doanh nghiệp một nguồn lực ổn định, trách nhiệm và định hướng hệ thống - phù hợp với định hướng "Phát triển bền vững - Đổi mới sáng tạo - Giá trị thực chất" mà Phenikaa theo đuổi.',
     },
     skills: {
       title: "Kỹ năng",

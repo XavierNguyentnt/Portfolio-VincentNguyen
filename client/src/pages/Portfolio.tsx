@@ -188,7 +188,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section
         id="hero"
-        className="min-h-[85vh] flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-20 sm:pt-24 pb-12 sm:pb-16">
+        className="min-h-[75vh] flex items-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-20 sm:pt-24 pb-12 sm:pb-16">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-esg-green/5 blur-3xl rounded-full transform translate-x-1/3 -translate-y-1/4"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-esg-blue/5 blur-3xl rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
 
@@ -291,28 +291,30 @@ export default function Portfolio() {
 
       {/* About Section */}
       <Section id="about" className="bg-white">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-8 sm:gap-12 md:gap-14">
           <SectionTitle className="text-center">{t.about.title}</SectionTitle>
-        </div>
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed space-y-4 sm:space-y-6">
-            <p className="font-light">{t.about.summary}</p>
+            className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed space-y-6 sm:space-y-8 max-w-5xl">
+            {t.about.summary.split("\n\n").map((paragraph, index) => (
+              <p key={index} className="font-light whitespace-pre-line">
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border-2 border-gray-100 relative overflow-hidden group hover:shadow-2xl hover:border-esg-green/30 transition-all duration-300">
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border-2 border-gray-100 relative overflow-hidden group hover:shadow-2xl hover:border-esg-green/30 transition-all duration-300 w-full">
             <div className="absolute top-0 right-0 p-4 sm:p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
               <Leaf className="w-32 h-32 sm:w-40 sm:h-40 text-esg-green" />
             </div>
-            <div className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+            <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               <div className="flex flex-col items-center p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-50">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-esg-green/10 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
                   <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-esg-green" />
